@@ -397,7 +397,7 @@ public class JavadocParser extends AbstractCommentParser {
 					break;
 				}
 				break;
-			case TerminalTokens.TokenNamereturn :
+			case TerminalTokens.TokenNameReturn :
 				this.tagValue = TAG_RETURN_VALUE;
 				valid = parseReturn();
 				/* verify characters after return tag (we're expecting text description)
@@ -409,7 +409,7 @@ public class JavadocParser extends AbstractCommentParser {
 				}
 				*/
 				break;
-			case TerminalTokens.TokenNamethrows :
+			case TerminalTokens.TokenNameThrows :
 				this.tagValue = TAG_THROWS_VALUE;
 				valid = parseThrows();
 				break;

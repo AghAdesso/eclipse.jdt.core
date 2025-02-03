@@ -1344,10 +1344,10 @@ protected void consumeToken(int token) {
 					case TokenNameIdentifier:
 						this.pushOnElementStack(K_SELECTOR, this.identifierPtr);
 						break;
-					case TokenNamethis: // explicit constructor invocation, e.g. this(1, 2)
+					case TokenNameThis: // explicit constructor invocation, e.g. this(1, 2)
 						this.pushOnElementStack(K_SELECTOR, THIS_CONSTRUCTOR);
 						break;
-					case TokenNamesuper: // explicit constructor invocation, e.g. super(1, 2)
+					case TokenNameSuper: // explicit constructor invocation, e.g. super(1, 2)
 						this.pushOnElementStack(K_SELECTOR, SUPER_CONSTRUCTOR);
 						break;
 					case TokenNameGREATER: // explicit constructor invocation, e.g. Fred<X>[(]1, 2)

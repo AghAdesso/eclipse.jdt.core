@@ -377,7 +377,7 @@ public class LineBreaksPreparator extends ASTVisitor {
 			handleLoopBody(body);
 		if (this.options.insert_new_line_before_while_in_do_statement
 				|| (!(body instanceof Block) && !(body instanceof EmptyStatement) && !sameLine)) {
-			Token whileToken = this.tm.firstTokenBefore(node.getExpression(), TokenNamewhile);
+			Token whileToken = this.tm.firstTokenBefore(node.getExpression(), TokenNameWhile);
 			whileToken.breakBefore();
 		}
 		return true;
@@ -520,7 +520,7 @@ public class LineBreaksPreparator extends ASTVisitor {
 		Statement thenNode = node.getThenStatement();
 		if (elseNode != null) {
 			if (this.options.insert_new_line_before_else_in_if_statement || !(thenNode instanceof Block))
-				this.tm.firstTokenBefore(elseNode, TokenNameelse).breakBefore();
+				this.tm.firstTokenBefore(elseNode, TokenNameElse).breakBefore();
 
 			boolean keepElseOnSameLine = (this.options.keep_else_statement_on_same_line)
 					|| (this.options.compact_else_if && (elseNode instanceof IfStatement));
@@ -539,7 +539,7 @@ public class LineBreaksPreparator extends ASTVisitor {
 	@Override
 	public boolean visit(TryStatement node) {
 		if (node.getFinally() != null && this.options.insert_new_line_before_finally_in_try_statement) {
-			this.tm.firstTokenBefore(node.getFinally(), TokenNamefinally).breakBefore();
+			this.tm.firstTokenBefore(node.getFinally(), TokenNameFinally).breakBefore();
 		}
 		return true;
 	}

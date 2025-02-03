@@ -32,8 +32,8 @@ public abstract class BinaryContainer extends IndexRequest {
 			// assert and enum will not be recognized as java identifiers
 			// in 1.7 mode, which are in 1.3.
 			case TerminalTokens.TokenNameIdentifier:
-			case TerminalTokens.TokenNameassert:
-			case TerminalTokens.TokenNameenum:
+			case TerminalTokens.TokenNameAssert:
+			case TerminalTokens.TokenNameEnum:
 				return true;
 			default:
 				return false;

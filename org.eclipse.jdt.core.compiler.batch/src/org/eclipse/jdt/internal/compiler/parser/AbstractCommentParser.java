@@ -1245,57 +1245,57 @@ public abstract class AbstractCommentParser implements JavadocTagConstants {
 					consumeToken();
 					break;
 
-				case TerminalTokens.TokenNameabstract:
-				case TerminalTokens.TokenNameassert:
-				case TerminalTokens.TokenNameboolean:
-				case TerminalTokens.TokenNamebreak:
-				case TerminalTokens.TokenNamebyte:
-				case TerminalTokens.TokenNamecase:
-				case TerminalTokens.TokenNamecatch:
-				case TerminalTokens.TokenNamechar:
-				case TerminalTokens.TokenNameclass:
-				case TerminalTokens.TokenNamecontinue:
-				case TerminalTokens.TokenNamedefault:
-				case TerminalTokens.TokenNamedo:
-				case TerminalTokens.TokenNamedouble:
-				case TerminalTokens.TokenNameelse:
-				case TerminalTokens.TokenNameextends:
-				case TerminalTokens.TokenNamefalse:
-				case TerminalTokens.TokenNamefinal:
-				case TerminalTokens.TokenNamefinally:
-				case TerminalTokens.TokenNamefloat:
-				case TerminalTokens.TokenNamefor:
-				case TerminalTokens.TokenNameif:
-				case TerminalTokens.TokenNameimplements:
-				case TerminalTokens.TokenNameimport:
-				case TerminalTokens.TokenNameinstanceof:
-				case TerminalTokens.TokenNameint:
-				case TerminalTokens.TokenNameinterface:
-				case TerminalTokens.TokenNamelong:
-				case TerminalTokens.TokenNamenative:
-				case TerminalTokens.TokenNamenew:
-				case TerminalTokens.TokenNamenon_sealed:
-				case TerminalTokens.TokenNamenull:
-				case TerminalTokens.TokenNamepackage:
+				case TerminalTokens.TokenNameAbstract:
+				case TerminalTokens.TokenNameAssert:
+				case TerminalTokens.TokenNameBoolean:
+				case TerminalTokens.TokenNameBreak:
+				case TerminalTokens.TokenNameByte:
+				case TerminalTokens.TokenNameCase:
+				case TerminalTokens.TokenNameCatch:
+				case TerminalTokens.TokenNameChar:
+				case TerminalTokens.TokenNameClass:
+				case TerminalTokens.TokenNameContinue:
+				case TerminalTokens.TokenNameDefault:
+				case TerminalTokens.TokenNameDo:
+				case TerminalTokens.TokenNameDouble:
+				case TerminalTokens.TokenNameElse:
+				case TerminalTokens.TokenNameExtends:
+				case TerminalTokens.TokenNameFalse:
+				case TerminalTokens.TokenNameFinal:
+				case TerminalTokens.TokenNameFinally:
+				case TerminalTokens.TokenNameFloat:
+				case TerminalTokens.TokenNameFor:
+				case TerminalTokens.TokenNameIf:
+				case TerminalTokens.TokenNameImplements:
+				case TerminalTokens.TokenNameImport:
+				case TerminalTokens.TokenNameInstanceof:
+				case TerminalTokens.TokenNameInt:
+				case TerminalTokens.TokenNameInterface:
+				case TerminalTokens.TokenNameLong:
+				case TerminalTokens.TokenNameNative:
+				case TerminalTokens.TokenNameNew:
+				case TerminalTokens.TokenNameNonSealed:
+				case TerminalTokens.TokenNameNull:
+				case TerminalTokens.TokenNamePackage:
 				case TerminalTokens.TokenNameRestrictedIdentifierpermits:
-				case TerminalTokens.TokenNameprivate:
-				case TerminalTokens.TokenNameprotected:
-				case TerminalTokens.TokenNamepublic:
+				case TerminalTokens.TokenNamePrivate:
+				case TerminalTokens.TokenNameProtected:
+				case TerminalTokens.TokenNamePublic:
 				case TerminalTokens.TokenNameRestrictedIdentifiersealed:
-				case TerminalTokens.TokenNameshort:
-				case TerminalTokens.TokenNamestatic:
-				case TerminalTokens.TokenNamestrictfp:
-				case TerminalTokens.TokenNamesuper:
-				case TerminalTokens.TokenNameswitch:
-				case TerminalTokens.TokenNamesynchronized:
-				case TerminalTokens.TokenNamethis:
-				case TerminalTokens.TokenNamethrow:
-				case TerminalTokens.TokenNametransient:
-				case TerminalTokens.TokenNametrue:
-				case TerminalTokens.TokenNametry:
-				case TerminalTokens.TokenNamevoid:
-				case TerminalTokens.TokenNamevolatile:
-				case TerminalTokens.TokenNamewhile:
+				case TerminalTokens.TokenNameShort:
+				case TerminalTokens.TokenNameStatic:
+				case TerminalTokens.TokenNameStrictfp:
+				case TerminalTokens.TokenNameSuper:
+				case TerminalTokens.TokenNameSwitch:
+				case TerminalTokens.TokenNameSynchronized:
+				case TerminalTokens.TokenNameThis:
+				case TerminalTokens.TokenNameThrow:
+				case TerminalTokens.TokenNameTransient:
+				case TerminalTokens.TokenNameTrue:
+				case TerminalTokens.TokenNameTry:
+				case TerminalTokens.TokenNameVoid:
+				case TerminalTokens.TokenNameVolatile:
+				case TerminalTokens.TokenNameWhile:
 					if (iToken == 0) {
 						pushIdentifier(true, true);
 						primitiveToken = token;
@@ -1577,7 +1577,7 @@ public abstract class AbstractCommentParser implements JavadocTagConstants {
 			Map<String, String> snippetAttributes  = new HashMap();
 			if (!parseTillColon(snippetAttributes)) {
 				int token = readTokenSafely();
-				boolean eitherNameorClass = token == TerminalTokens.TokenNameIdentifier || token == TerminalTokens.TokenNameclass || token == TerminalTokens.TokenNameUNDERSCORE;
+				boolean eitherNameorClass = token == TerminalTokens.TokenNameIdentifier || token == TerminalTokens.TokenNameClass || token == TerminalTokens.TokenNameUNDERSCORE;
 				if (!eitherNameorClass ) {
 					this.setSnippetError(snippetTag, "Missing colon"); //$NON-NLS-1$
 					this.setSnippetIsValid(snippetTag, false);
@@ -2268,7 +2268,7 @@ public abstract class AbstractCommentParser implements JavadocTagConstants {
 					consumeToken();
 					colonTokenFound = true;
 					break;
-				case TerminalTokens.TokenNameclass:
+				case TerminalTokens.TokenNameClass:
 					if(lookForValue == false) {
 						isValid = false;
 					}

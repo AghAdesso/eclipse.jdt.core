@@ -418,7 +418,7 @@ public RecoveredElement updateOnOpeningBrace(int braceStart, int braceEnd){
 		 */
 		switch(parser().lastIgnoredToken){
 			case -1 :
-			case TokenNamethrows :
+			case TokenNameThrows :
 				break;
 			default:
 				this.foundOpeningBrace = true;				

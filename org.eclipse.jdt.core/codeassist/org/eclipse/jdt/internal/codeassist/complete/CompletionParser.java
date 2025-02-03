@@ -2724,7 +2724,7 @@ protected void consumeConstructorHeaderName() {
 		int selectorSourceEnd = (int) selectorSourcePositions;
 		int currentAstPtr = this.astPtr;
 		/* recovering - might be an empty message send */
-		if (this.currentElement != null && this.lastIgnoredToken == TokenNamenew){ // was an allocation expression
+		if (this.currentElement != null && this.lastIgnoredToken == TokenNameNew){ // was an allocation expression
 			super.consumeConstructorHeaderName();
 		} else {
 			super.consumeConstructorHeaderName();
@@ -2752,7 +2752,7 @@ protected void consumeConstructorHeaderNameWithTypeParameters() {
 	long selectorSourcePositions = this.identifierPositionStack[this.identifierPtr];
 	int selectorSourceEnd = (int) selectorSourcePositions;
 	int currentAstPtr = this.astPtr;
-	if (this.currentElement != null && this.lastIgnoredToken == TokenNamenew){ // was an allocation expression
+	if (this.currentElement != null && this.lastIgnoredToken == TokenNameNew){ // was an allocation expression
 		super.consumeConstructorHeaderNameWithTypeParameters();
 	} else {
 		super.consumeConstructorHeaderNameWithTypeParameters();
@@ -4214,21 +4214,21 @@ protected void consumeToken(int token) {
 			&& isIndirectlyInsideFieldInitialization()) { // enum initializers indeed need more context
 		this.scanner.eofPosition = this.cursorLocation < Integer.MAX_VALUE ? this.cursorLocation+1 : this.cursorLocation;
 	}
-	if (token == TokenNameimport) {
+	if (token == TokenNameImport) {
 		pushOnElementStack(K_INSIDE_IMPORT_STATEMENT);
-	}	else if (token == TokenNameexports) {
+	}	else if (token == TokenNameExports) {
 		pushOnElementStack(K_INSIDE_EXPORTS_STATEMENT);
-	}	else if (token == TokenNameopens) {
+	}	else if (token == TokenNameOpens) {
 		pushOnElementStack(K_INSIDE_OPENS_STATEMENT);
-	}	else if (token == TokenNameto) {
+	}	else if (token == TokenNameTo) {
 		popElement(K_AFTER_PACKAGE_IN_PACKAGE_VISIBILITY_STATEMENT);
-	}	else if (token == TokenNamerequires) {
+	}	else if (token == TokenNameRequires) {
 		pushOnElementStack(K_INSIDE_REQUIRES_STATEMENT);
-	} else if (token == TokenNameprovides) {
+	} else if (token == TokenNameProvides) {
 		pushOnElementStack(K_INSIDE_PROVIDES_STATEMENT);
-	} else if (token == TokenNameuses) {
+	} else if (token == TokenNameUses) {
 		pushOnElementStack(K_INSIDE_USES_STATEMENT);
-	}	else if (token == TokenNamewith) {
+	}	else if (token == TokenNameWith) {
 		popElement(K_AFTER_NAME_IN_PROVIDES_STATEMENT);
 		pushOnElementStack(K_AFTER_WITH_IN_PROVIDES_STATEMENT);
 	}
@@ -4238,10 +4238,10 @@ protected void consumeToken(int token) {
 		switch (token) {
 			case TokenNameDOT:
 				switch (previous) {
-					case TokenNamethis: // e.g. this[.]fred()
+					case TokenNameThis: // e.g. this[.]fred()
 						this.invocationType = EXPLICIT_RECEIVER;
 						break;
-					case TokenNamesuper: // e.g. super[.]fred()
+					case TokenNameSuper: // e.g. super[.]fred()
 						this.invocationType = SUPER_RECEIVER;
 						break;
 					case TokenNameUNDERSCORE:
@@ -4300,7 +4300,7 @@ protected void consumeToken(int token) {
 					}
 				}
 				break;
-			case TokenNamenew:
+			case TokenNameNew:
 				if (this.inReferenceExpression)
 					break;
 				pushOnElementStack(K_BETWEEN_NEW_AND_LEFT_BRACKET);
@@ -4311,19 +4311,19 @@ protected void consumeToken(int token) {
 					this.invocationType = ALLOCATION;
 				}
 				break;
-			case TokenNamethis:
+			case TokenNameThis:
 				if (previous == TokenNameDOT) { // e.g. fred().[this]()
 					this.invocationType = QUALIFIED_ALLOCATION;
 					this.qualifier = this.expressionPtr;
 				}
 				break;
-			case TokenNamesuper:
+			case TokenNameSuper:
 				if (previous == TokenNameDOT) { // e.g. fred().[super]()
 					this.invocationType = QUALIFIED_ALLOCATION;
 					this.qualifier = this.expressionPtr;
 				}
 				break;
-			case TokenNamecatch:
+			case TokenNameCatch:
 				pushOnElementStack(K_BETWEEN_CATCH_AND_RIGHT_PAREN);
 				break;
 			case TokenNameLPAREN:
@@ -4352,7 +4352,7 @@ protected void consumeToken(int token) {
 						this.qualifier = -1;
 						this.invocationType = NO_RECEIVER;
 						break;
-					case TokenNamethis: // explicit constructor invocation, e.g. this[(]1, 2)
+					case TokenNameThis: // explicit constructor invocation, e.g. this[(]1, 2)
 						if (topKnownElementKind(COMPLETION_OR_ASSIST_PARSER) == K_SELECTOR) {
 							this.pushOnElementStack(K_SELECTOR_INVOCATION_TYPE, (this.invocationType == QUALIFIED_ALLOCATION) ? QUALIFIED_ALLOCATION : ALLOCATION);
 							this.pushOnElementStack(K_SELECTOR_QUALIFIER, this.qualifier);
@@ -4360,7 +4360,7 @@ protected void consumeToken(int token) {
 						this.qualifier = -1;
 						this.invocationType = NO_RECEIVER;
 						break;
-					case TokenNamesuper: // explicit constructor invocation, e.g. super[(]1, 2)
+					case TokenNameSuper: // explicit constructor invocation, e.g. super[(]1, 2)
 						if (topKnownElementKind(COMPLETION_OR_ASSIST_PARSER) == K_SELECTOR) {
 							this.pushOnElementStack(K_SELECTOR_INVOCATION_TYPE, (this.invocationType == QUALIFIED_ALLOCATION) ? QUALIFIED_ALLOCATION : ALLOCATION);
 							this.pushOnElementStack(K_SELECTOR_QUALIFIER, this.qualifier);
@@ -4431,10 +4431,10 @@ protected void consumeToken(int token) {
 										break;
 								}
 								break;
-							case TokenNametry :
+							case TokenNameTry :
 								pushOnElementStack(K_BLOCK_DELIMITER, TRY);
 								break;
-							case TokenNamedo:
+							case TokenNameDo:
 								pushOnElementStack(K_BLOCK_DELIMITER, DO);
 								break;
 							case TokenNameARROW:
@@ -4453,14 +4453,14 @@ protected void consumeToken(int token) {
 					switch (previous) {
 						case TokenNameUNDERSCORE:
 						case TokenNameIdentifier:
-						case TokenNameboolean:
-						case TokenNamebyte:
-						case TokenNamechar:
-						case TokenNamedouble:
-						case TokenNamefloat:
-						case TokenNameint:
-						case TokenNamelong:
-						case TokenNameshort:
+						case TokenNameBoolean:
+						case TokenNameByte:
+						case TokenNameChar:
+						case TokenNameDouble:
+						case TokenNameFloat:
+						case TokenNameInt:
+						case TokenNameLong:
+						case TokenNameShort:
 						case TokenNameGREATER:
 						case TokenNameRIGHT_SHIFT:
 						case TokenNameUNSIGNED_RIGHT_SHIFT:
@@ -4508,7 +4508,7 @@ protected void consumeToken(int token) {
 						break;
 				}
 				break;
-			case TokenNamethrow:
+			case TokenNameThrow:
 				pushOnElementStack(K_INSIDE_THROW_STATEMENT, this.bracketDepth);
 				break;
 			case TokenNameSEMICOLON:
@@ -4558,7 +4558,7 @@ protected void consumeToken(int token) {
 						break;
 				}
 				break;
-			case TokenNamereturn:
+			case TokenNameReturn:
 				pushOnElementStack(K_INSIDE_RETURN_STATEMENT, this.bracketDepth);
 				break;
 			case TokenNameMULTIPLY:
@@ -4590,7 +4590,7 @@ protected void consumeToken(int token) {
 					case TokenNameDOT :
 						pushOnElementStack(K_PARAMETERIZED_METHOD_INVOCATION);
 						break;
-					case TokenNamenew :
+					case TokenNameNew :
 						pushOnElementStack(K_PARAMETERIZED_ALLOCATION);
 						break;
 				}
@@ -4640,7 +4640,7 @@ protected void consumeToken(int token) {
 			case TokenNameNOT_EQUAL:
 				pushOnElementStack(K_BINARY_OPERATOR, NOT_EQUAL);
 				break;
-			case TokenNameinstanceof:
+			case TokenNameInstanceof:
 				pushOnElementStack(K_BINARY_OPERATOR, INSTANCEOF);
 				break;
 			case TokenNameQUESTION:
@@ -4677,32 +4677,32 @@ protected void consumeToken(int token) {
 						break;
 				}
 				break;
-			case TokenNameif:
+			case TokenNameIf:
 				pushOnElementStack(K_BETWEEN_IF_AND_RIGHT_PAREN, this.bracketDepth);
 				break;
-			case TokenNameelse:
+			case TokenNameElse:
 				if (topKnownElementKind(COMPLETION_OR_ASSIST_PARSER) == K_CONTROL_STATEMENT_DELIMITER) {
 					popElement(K_CONTROL_STATEMENT_DELIMITER);
 				}
 				pushOnElementStack(K_CONTROL_STATEMENT_DELIMITER);
 				break;
-			case TokenNamewhile:
+			case TokenNameWhile:
 				pushOnElementStack(K_BETWEEN_WHILE_AND_RIGHT_PAREN, this.bracketDepth);
 				break;
-			case TokenNamefor:
+			case TokenNameFor:
 				pushOnElementStack(K_BETWEEN_FOR_AND_RIGHT_PAREN, this.bracketDepth);
 				break;
-			case TokenNameswitch:
+			case TokenNameSwitch:
 				popElement(K_LOCAL_INITIALIZER_DELIMITER);
 				pushOnElementStack(K_BETWEEN_SWITCH_AND_RIGHT_PAREN, this.bracketDepth);
 				break;
-			case TokenNamesynchronized:
+			case TokenNameSynchronized:
 				pushOnElementStack(K_BETWEEN_SYNCHRONIZED_AND_RIGHT_PAREN, this.bracketDepth);
 				break;
-			case TokenNameassert:
+			case TokenNameAssert:
 				pushOnElementStack(K_INSIDE_ASSERT_STATEMENT, this.bracketDepth);
 				break;
-			case TokenNamecase :
+			case TokenNameCase :
 				pushOnElementStack(K_BETWEEN_CASE_AND_COLON);
 				break;
 			case TokenNameCOMMA :
@@ -4716,16 +4716,16 @@ protected void consumeToken(int token) {
 						this.expressionLengthStack[this.expressionLengthPtr]--;
 				}
 				break;
-			case TokenNamedefault :
+			case TokenNameDefault :
 				pushOnElementStack(K_BETWEEN_DEFAULT_AND_COLON);
 				break;
-			case TokenNameextends:
+			case TokenNameExtends:
 				pushOnElementStack(K_EXTENDS_KEYWORD);
 				break;
-			case TokenNamebreak:
+			case TokenNameBreak:
 				pushOnElementStack(K_INSIDE_BREAK_STATEMENT, this.bracketDepth);
 				break;
-			case TokenNamecontinue:
+			case TokenNameContinue:
 				pushOnElementStack(K_INSIDE_CONTINUE_STATEMENT, this.bracketDepth);
 				break;
 		}
@@ -4741,7 +4741,7 @@ protected void consumeToken(int token) {
 		}
 	} else {
 		switch(token) {
-			case TokenNameextends:
+			case TokenNameExtends:
 				pushOnElementStack(K_EXTENDS_KEYWORD);
 				break;
 			case TokenNameLESS:
@@ -6048,14 +6048,14 @@ public void recoveryTokenCheck() {
 				}
 			}
 			break;
-		case TokenNamecase :
+		case TokenNameCase :
 			super.recoveryTokenCheck();
 			if(topKnownElementKind(COMPLETION_OR_ASSIST_PARSER) == K_BLOCK_DELIMITER
 				&& topKnownElementInfo(COMPLETION_OR_ASSIST_PARSER) == SWITCH) {
 				pushOnElementStack(K_SWITCH_LABEL);
 			}
 			break;
-		case TokenNamedefault :
+		case TokenNameDefault :
 			super.recoveryTokenCheck();
 			if(topKnownElementKind(COMPLETION_OR_ASSIST_PARSER) == K_BLOCK_DELIMITER
 				&& topKnownElementInfo(COMPLETION_OR_ASSIST_PARSER) == SWITCH) {

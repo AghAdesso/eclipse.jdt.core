@@ -16,7 +16,7 @@ package org.eclipse.jdt.internal.formatter;
 
 import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameLBRACE;
 import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameRBRACE;
-import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNamewhile;
+import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameWhile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +143,7 @@ public class OneLineEnforcer extends ASTVisitor {
 			oneLineOption = this.options.keep_loop_body_block_on_one_line;
 			int openBraceIndex = this.tm.firstIndexIn(node, TokenNameLBRACE);
 			int closeBraceIndex = this.tm.lastIndexIn(node, TokenNameRBRACE);
-			Token whileToken = this.tm.firstTokenAfter(node, TokenNamewhile);
+			Token whileToken = this.tm.firstTokenAfter(node, TokenNameWhile);
 			int lastIndex = whileToken.getLineBreaksBefore() == 0 ? this.tm.lastIndexIn(parent, -1) : closeBraceIndex;
 			tryKeepOnOneLine(openBraceIndex, closeBraceIndex, lastIndex, statements, oneLineOption);
 			return;

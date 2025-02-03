@@ -80,16 +80,16 @@ public class PublicScannerTest extends AbstractRegressionTest {
 		SYNTHETIC_SKIP_TOKENS = Collections.unmodifiableList(list);
 
 		list = new ArrayList<>();
-		list.add(TerminalTokens.TokenNamemodule);
-		list.add(TerminalTokens.TokenNamerequires);
-		list.add(TerminalTokens.TokenNameexports);
-		list.add(TerminalTokens.TokenNameto);
-		list.add(TerminalTokens.TokenNameopen);
-		list.add(TerminalTokens.TokenNameopens);
-		list.add(TerminalTokens.TokenNameprovides);
-		list.add(TerminalTokens.TokenNamewith);
-		list.add(TerminalTokens.TokenNametransitive);
-		list.add(TerminalTokens.TokenNameuses);
+		list.add(TerminalTokens.TokenNameModule);
+		list.add(TerminalTokens.TokenNameRequires);
+		list.add(TerminalTokens.TokenNameExports);
+		list.add(TerminalTokens.TokenNameTo);
+		list.add(TerminalTokens.TokenNameOpen);
+		list.add(TerminalTokens.TokenNameOpens);
+		list.add(TerminalTokens.TokenNameProvides);
+		list.add(TerminalTokens.TokenNameWith);
+		list.add(TerminalTokens.TokenNameTransitive);
+		list.add(TerminalTokens.TokenNameUses);
 		MODULE_TOKENS = Collections.unmodifiableList(list);
 	}
 

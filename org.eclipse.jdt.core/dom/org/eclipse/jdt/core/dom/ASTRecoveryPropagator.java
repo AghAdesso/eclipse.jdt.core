@@ -39,7 +39,7 @@ class ASTRecoveryPropagator extends DefaultASTVisitor {
 		this.endingTokens.put(ArrayType.class, new int[]{TerminalTokens.TokenNameRBRACKET});
 		this.endingTokens.put(AssertStatement.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
 		this.endingTokens.put(Block.class, new int[]{TerminalTokens.TokenNameRBRACE});
-		this.endingTokens.put(BooleanLiteral.class, new int[]{TerminalTokens.TokenNamefalse, TerminalTokens.TokenNametrue});
+		this.endingTokens.put(BooleanLiteral.class, new int[]{TerminalTokens.TokenNameFalse, TerminalTokens.TokenNameTrue});
 		this.endingTokens.put(BreakStatement.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
 		this.endingTokens.put(CharacterLiteral.class, new int[]{TerminalTokens.TokenNameCharacterLiteral});
 		this.endingTokens.put(ClassInstanceCreation.class, new int[]{TerminalTokens.TokenNameRBRACE, TerminalTokens.TokenNameRPAREN});
@@ -55,12 +55,12 @@ class ASTRecoveryPropagator extends DefaultASTVisitor {
 		this.endingTokens.put(MethodInvocation.class, new int[]{TerminalTokens.TokenNameRPAREN});
 		this.endingTokens.put(ModuleDeclaration.class, new int[]{TerminalTokens.TokenNameRBRACE});
 		this.endingTokens.put(ModuleDirective.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
-		this.endingTokens.put(NullLiteral.class, new int[]{TerminalTokens.TokenNamenull});
+		this.endingTokens.put(NullLiteral.class, new int[]{TerminalTokens.TokenNameNull});
 		this.endingTokens.put(NumberLiteral.class, new int[]{TerminalTokens.TokenNameIntegerLiteral, TerminalTokens.TokenNameLongLiteral, TerminalTokens.TokenNameFloatingPointLiteral, TerminalTokens.TokenNameDoubleLiteral});
 		this.endingTokens.put(PackageDeclaration.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
 		this.endingTokens.put(ParenthesizedExpression.class, new int[]{TerminalTokens.TokenNameRPAREN});
 		this.endingTokens.put(PostfixExpression.class, new int[]{TerminalTokens.TokenNamePLUS_PLUS, TerminalTokens.TokenNameMINUS_MINUS});
-		this.endingTokens.put(PrimitiveType.class, new int[]{TerminalTokens.TokenNamebyte, TerminalTokens.TokenNameshort, TerminalTokens.TokenNamechar, TerminalTokens.TokenNameint, TerminalTokens.TokenNamelong, TerminalTokens.TokenNamefloat, TerminalTokens.TokenNameboolean, TerminalTokens.TokenNamedouble, TerminalTokens.TokenNamevoid});
+		this.endingTokens.put(PrimitiveType.class, new int[]{TerminalTokens.TokenNameByte, TerminalTokens.TokenNameShort, TerminalTokens.TokenNameChar, TerminalTokens.TokenNameInt, TerminalTokens.TokenNameLong, TerminalTokens.TokenNameFloat, TerminalTokens.TokenNameBoolean, TerminalTokens.TokenNameDouble, TerminalTokens.TokenNameVoid});
 		this.endingTokens.put(ReturnStatement.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
 		this.endingTokens.put(SimpleName.class, new int[]{TerminalTokens.TokenNameIdentifier});
 		this.endingTokens.put(SingleVariableDeclaration.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
@@ -70,10 +70,10 @@ class ASTRecoveryPropagator extends DefaultASTVisitor {
 		this.endingTokens.put(SwitchCase.class, new int[]{TerminalTokens.TokenNameCOLON});
 		this.endingTokens.put(SwitchStatement.class, new int[]{TerminalTokens.TokenNameRBRACE});
 		this.endingTokens.put(SynchronizedStatement.class, new int[]{TerminalTokens.TokenNameRBRACE});
-		this.endingTokens.put(ThisExpression.class, new int[]{TerminalTokens.TokenNamethis});
+		this.endingTokens.put(ThisExpression.class, new int[]{TerminalTokens.TokenNameThis});
 		this.endingTokens.put(ThrowStatement.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
 		this.endingTokens.put(TypeDeclaration.class, new int[]{TerminalTokens.TokenNameRBRACE});
-		this.endingTokens.put(TypeLiteral.class, new int[]{TerminalTokens.TokenNameclass});
+		this.endingTokens.put(TypeLiteral.class, new int[]{TerminalTokens.TokenNameClass});
 		this.endingTokens.put(VariableDeclarationStatement.class, new int[]{TerminalTokens.TokenNameSEMICOLON});
 	}
 

@@ -25,7 +25,7 @@ import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameN
 import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameStringLiteral;
 import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameTextBlock;
 import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNameWHITESPACE;
-import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNamepackage;
+import static org.eclipse.jdt.internal.compiler.parser.TerminalTokens.TokenNamePackage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -499,7 +499,7 @@ public class CommentsPreparator extends ASTVisitor {
 					previous.setPreserveLineBreaksAfter(true);
 				}
 			} else if (existingBreaksAfter < 2 && existingBreaksAfter <= existingBreaksBefore && next != null
-					&& next.tokenType != TokenNamepackage /* doesn't apply to a comment before the package declaration */) {
+					&& next.tokenType != TokenNamePackage /* doesn't apply to a comment before the package declaration */) {
 				if (next.isPreserveLineBreaksBefore() || next.getLineBreaksBefore() >= 2 || existingBreaksBefore < 2) {
 					commentToken.putLineBreaksBefore(next.getLineBreaksBefore());
 					commentToken.setPreserveLineBreaksBefore(next.isPreserveLineBreaksBefore());

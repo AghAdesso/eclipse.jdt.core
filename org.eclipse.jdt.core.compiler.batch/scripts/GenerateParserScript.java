@@ -81,7 +81,7 @@ public class GenerateParserScript {
 			javasymText = javasymText.replace(",\n      ", ",\n\t\t\t\t\t\t\t");
 			javasymText = javasymText.replace("TokenName$eof", "TokenNameEOF");
 			javasymText = javasymText.replace("TokenName$error", "TokenNameERROR");
-			javasymText = javasymText.replace("TokenNamenon-sealed", "TokenNamenon_sealed");
+			javasymText = javasymText.replace("TokenNamenon-sealed", "TokenNameNonSealed");
 			Files.write(terminalTokensFile.toPath(), (terminalTokensProlog + "\tint " + javasymText).getBytes());
 		}
 

@@ -73,9 +73,9 @@ public class WrapPreparator extends ASTVisitor {
 			if (this.accessExpression instanceof QualifiedName)
 				return tm.firstIndexIn(((QualifiedName) this.accessExpression).getName(), TokenNameIdentifier);
 			if (this.accessExpression instanceof ThisExpression)
-				return tm.lastIndexIn(this.accessExpression, TokenNamethis);
+				return tm.lastIndexIn(this.accessExpression, TokenNameThis);
 			if (this.accessExpression instanceof SuperFieldAccess)
-				return tm.lastIndexIn(this.accessExpression, TokenNamesuper);
+				return tm.lastIndexIn(this.accessExpression, TokenNameSuper);
 			throw new AssertionError();
 		}
 	}
@@ -217,14 +217,14 @@ public class WrapPreparator extends ASTVisitor {
 		if (superclassType != null) {
 			this.wrapParentIndex = this.tm.lastIndexIn(node.getName(), -1);
 			this.wrapGroupEnd = this.tm.lastIndexIn(superclassType, -1);
-			this.wrapIndexes.add(this.tm.firstIndexBefore(superclassType, TokenNameextends));
+			this.wrapIndexes.add(this.tm.firstIndexBefore(superclassType, TokenNameExtends));
 			this.wrapIndexes.add(this.tm.firstIndexIn(superclassType, -1));
 			handleWrap(this.options.alignment_for_superclass_in_type_declaration, PREFERRED);
 		}
 
 		List<Type> superInterfaceTypes = node.superInterfaceTypes();
 		if (!superInterfaceTypes.isEmpty()) {
-			int implementsToken = node.isInterface() ? TokenNameextends : TokenNameimplements;
+			int implementsToken = node.isInterface() ? TokenNameExtends : TokenNameImplements;
 			this.wrapParentIndex = this.tm.lastIndexIn(node.getName(), -1);
 			this.wrapIndexes.add(this.tm.firstIndexBefore(superInterfaceTypes.get(0), implementsToken));
 			prepareElementsList(superInterfaceTypes, TokenNameCOMMA, -1);
@@ -285,7 +285,7 @@ public class WrapPreparator extends ASTVisitor {
 		List<Type> superInterfaceTypes = node.superInterfaceTypes();
 		if (!superInterfaceTypes.isEmpty()) {
 			this.wrapParentIndex = this.tm.lastIndexIn(node.getName(), -1);
-			this.wrapIndexes.add(this.tm.firstIndexBefore(superInterfaceTypes.get(0), TokenNameimplements));
+			this.wrapIndexes.add(this.tm.firstIndexBefore(superInterfaceTypes.get(0), TokenNameImplements));
 			prepareElementsList(superInterfaceTypes, TokenNameCOMMA, -1);
 			handleWrap(this.options.alignment_for_superinterfaces_in_record_declaration, PREFERRED);
 		}
@@ -324,7 +324,7 @@ public class WrapPreparator extends ASTVisitor {
 				this.wrapParentIndex = this.tm.firstIndexAfter(node.getName(), TokenNameLPAREN);
 			prepareElementsList(exceptionTypes, TokenNameCOMMA, TokenNameRPAREN);
 			// instead of the first exception type, wrap the "throws" token
-			this.wrapIndexes.set(0, this.tm.firstIndexBefore(exceptionTypes.get(0), TokenNamethrows));
+			this.wrapIndexes.set(0, this.tm.firstIndexBefore(exceptionTypes.get(0), TokenNameThrows));
 			handleWrap(wrappingOption, 0.5f);
 		}
 
@@ -362,7 +362,7 @@ public class WrapPreparator extends ASTVisitor {
 				this.wrapIndexes.add(this.tm.firstIndexIn(constant, -1));
 			this.wrapParentIndex = (this.options.alignment_for_enum_constants & Alignment.M_INDENT_ON_COLUMN) > 0
 					? this.tm.firstIndexBefore(enumConstants.get(0), TokenNameLBRACE)
-					: this.tm.firstIndexIn(node, TokenNameenum);
+					: this.tm.firstIndexIn(node, TokenNameEnum);
 			this.wrapGroupEnd = constantsEnd = this.tm.lastIndexIn(enumConstants.get(enumConstants.size() - 1), -1);
 			handleWrap(this.options.alignment_for_enum_constants, node);
 		}
@@ -390,7 +390,7 @@ public class WrapPreparator extends ASTVisitor {
 		List<Type> superInterfaceTypes = node.superInterfaceTypes();
 		if (!superInterfaceTypes.isEmpty()) {
 			this.wrapParentIndex = this.tm.lastIndexIn(node.getName(), -1);
-			this.wrapIndexes.add(this.tm.firstIndexBefore(superInterfaceTypes.get(0), TokenNameimplements));
+			this.wrapIndexes.add(this.tm.firstIndexBefore(superInterfaceTypes.get(0), TokenNameImplements));
 			prepareElementsList(superInterfaceTypes, TokenNameCOMMA, -1);
 			handleWrap(this.options.alignment_for_superinterfaces_in_enum_declaration, PREFERRED);
 		}
@@ -483,7 +483,7 @@ public class WrapPreparator extends ASTVisitor {
 
 		AnonymousClassDeclaration anonymousClass = node.getAnonymousClassDeclaration();
 		if (anonymousClass != null) {
-			forceContinuousWrapping(anonymousClass, this.tm.firstIndexIn(node, TokenNamenew));
+			forceContinuousWrapping(anonymousClass, this.tm.firstIndexIn(node, TokenNameNew));
 		}
 
 		int wrappingOption = node.getExpression() != null
@@ -560,7 +560,7 @@ public class WrapPreparator extends ASTVisitor {
 					this.wrapIndexes.add(i);
 					this.secondaryWrapIndexes.add(nameIndex);
 				}
-				if (!t.isComment() && t.tokenType != TokenNamesuper)
+				if (!t.isComment() && t.tokenType != TokenNameSuper)
 					break;
 			}
 			expression = access.getExpression();
@@ -852,7 +852,7 @@ public class WrapPreparator extends ASTVisitor {
 	@Override
 	public void endVisit(DoStatement node) {
 		if (this.options.keep_simple_do_while_body_on_same_line && !(node.getBody() instanceof Block)) {
-			int whileIndex = this.tm.firstIndexAfter(node.getBody(), TokenNamewhile);
+			int whileIndex = this.tm.firstIndexAfter(node.getBody(), TokenNameWhile);
 			this.wrapIndexes.add(whileIndex);
 			this.wrapParentIndex = this.tm.lastIndexIn(node.getBody(), -1);
 			this.wrapGroupEnd = this.tm.lastIndexIn(node, -1);
@@ -1019,19 +1019,19 @@ public class WrapPreparator extends ASTVisitor {
 
 	@Override
 	public boolean visit(ExportsDirective node) {
-		handleModuleStatement(node.modules(), TokenNameto);
+		handleModuleStatement(node.modules(), TokenNameTo);
 		return true;
 	}
 
 	@Override
 	public boolean visit(OpensDirective node) {
-		handleModuleStatement(node.modules(), TokenNameto);
+		handleModuleStatement(node.modules(), TokenNameTo);
 		return true;
 	}
 
 	@Override
 	public boolean visit(ProvidesDirective node) {
-		handleModuleStatement(node.implementations(), TokenNamewith);
+		handleModuleStatement(node.implementations(), TokenNameWith);
 		return true;
 	}
 
@@ -1107,7 +1107,7 @@ public class WrapPreparator extends ASTVisitor {
 			}
 		}
 
-		prepareElementsList(node.expressions(), TokenNameCOMMA, TokenNamecase);
+		prepareElementsList(node.expressions(), TokenNameCOMMA, TokenNameCase);
 		handleWrap(node.isSwitchLabeledRule() ? this.options.alignment_for_expressions_in_switch_case_with_arrow
 				: this.options.alignment_for_expressions_in_switch_case_with_colon);
 		return true;

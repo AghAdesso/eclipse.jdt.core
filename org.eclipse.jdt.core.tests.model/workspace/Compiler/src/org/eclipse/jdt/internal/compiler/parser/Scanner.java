@@ -2496,7 +2496,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'c')
 						&& (data[++index] == 't')) {
-							return TokenNameabstract;
+							return TokenNameAbstract;
 						} else {
 							return TokenNameIdentifier;
 						}
@@ -2508,7 +2508,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 't')) {
 							if (this.sourceLevel >= ClassFileConstants.JDK1_4) {
 								this.containsAssertKeyword = true;
-								return TokenNameassert;
+								return TokenNameAssert;
 							} else {
 								this.useAssertAsAnIndentifier = true;
 								return TokenNameIdentifier;								
@@ -2523,7 +2523,7 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 4 :
 					if ((data[++index] == 'y') && (data[++index] == 't') && (data[++index] == 'e'))
-						return TokenNamebyte;
+						return TokenNameByte;
 					else
 						return TokenNameIdentifier;
 				case 5 :
@@ -2531,7 +2531,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'k'))
-						return TokenNamebreak;
+						return TokenNameBreak;
 					else
 						return TokenNameIdentifier;
 				case 7 :
@@ -2541,7 +2541,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'n'))
-						return TokenNameboolean;
+						return TokenNameBoolean;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -2553,18 +2553,18 @@ public int scanIdentifierOrKeyword() {
 				case 4 :
 					if (data[++index] == 'a')
 						if ((data[++index] == 's') && (data[++index] == 'e'))
-							return TokenNamecase;
+							return TokenNameCase;
 						else
 							return TokenNameIdentifier;
 					else
 						if ((data[index] == 'h') && (data[++index] == 'a') && (data[++index] == 'r'))
-							return TokenNamechar;
+							return TokenNameChar;
 						else
 							return TokenNameIdentifier;
 				case 5 :
 					if (data[++index] == 'a')
 						if ((data[++index] == 't') && (data[++index] == 'c') && (data[++index] == 'h'))
-							return TokenNamecatch;
+							return TokenNameCatch;
 						else
 							return TokenNameIdentifier;
 					else
@@ -2572,7 +2572,7 @@ public int scanIdentifierOrKeyword() {
 							if ((data[++index] == 'a')
 								&& (data[++index] == 's')
 								&& (data[++index] == 's'))
-								return TokenNameclass;
+								return TokenNameClass;
 							else
 								return TokenNameIdentifier;
 						else if ((data[index] == 'o')
@@ -2590,7 +2590,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'n')
 						&& (data[++index] == 'u')
 						&& (data[++index] == 'e'))
-						return TokenNamecontinue;
+						return TokenNameContinue;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -2601,7 +2601,7 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 2 :
 					if ((data[++index] == 'o'))
-						return TokenNamedo;
+						return TokenNameDo;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -2610,7 +2610,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'b')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e'))
-						return TokenNamedouble;
+						return TokenNameDouble;
 					else
 						return TokenNameIdentifier;
 				case 7 :
@@ -2620,7 +2620,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'u')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 't'))
-						return TokenNamedefault;
+						return TokenNameDefault;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -2630,12 +2630,12 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 4 :
 					if ((data[++index] == 'l') && (data[++index] == 's') && (data[++index] == 'e'))
-						return TokenNameelse;
+						return TokenNameElse;
 					else if ((data[index] == 'n')
 						&& (data[++index] == 'u')
 						&& (data[++index] == 'm')) {
 							if (this.sourceLevel >= ClassFileConstants.JDK1_5) {
-								return TokenNameenum;
+								return TokenNameEnum;
 							} else {
 								this.useEnumAsAnIndentifier = true;
 								return TokenNameIdentifier;								
@@ -2650,7 +2650,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'n')
 						&& (data[++index] == 'd')
 						&& (data[++index] == 's'))
-						return TokenNameextends;
+						return TokenNameExtends;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -2661,7 +2661,7 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 3 :
 					if ((data[++index] == 'o') && (data[++index] == 'r'))
-						return TokenNamefor;
+						return TokenNameFor;
 					else
 						return TokenNameIdentifier;
 				case 5 :
@@ -2669,7 +2669,7 @@ public int scanIdentifierOrKeyword() {
 						if ((data[++index] == 'n')
 							&& (data[++index] == 'a')
 							&& (data[++index] == 'l')) {
-							return TokenNamefinal;
+							return TokenNameFinal;
 						} else
 							return TokenNameIdentifier;
 					else
@@ -2677,7 +2677,7 @@ public int scanIdentifierOrKeyword() {
 							if ((data[++index] == 'o')
 								&& (data[++index] == 'a')
 								&& (data[++index] == 't'))
-								return TokenNamefloat;
+								return TokenNameFloat;
 							else
 								return TokenNameIdentifier;
 						else
@@ -2685,7 +2685,7 @@ public int scanIdentifierOrKeyword() {
 								&& (data[++index] == 'l')
 								&& (data[++index] == 's')
 								&& (data[++index] == 'e'))
-								return TokenNamefalse;
+								return TokenNameFalse;
 							else
 								return TokenNameIdentifier;
 				case 7 :
@@ -2695,7 +2695,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'y'))
-						return TokenNamefinally;
+						return TokenNameFinally;
 					else
 						return TokenNameIdentifier;
 
@@ -2716,12 +2716,12 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 2 :
 					if (data[++index] == 'f')
-						return TokenNameif;
+						return TokenNameIf;
 					else
 						return TokenNameIdentifier;
 				case 3 :
 					if ((data[++index] == 'n') && (data[++index] == 't'))
-						return TokenNameint;
+						return TokenNameInt;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -2730,7 +2730,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'o')
 						&& (data[++index] == 'r')
 						&& (data[++index] == 't'))
-						return TokenNameimport;
+						return TokenNameImport;
 					else
 						return TokenNameIdentifier;
 				case 9 :
@@ -2742,7 +2742,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'c')
 						&& (data[++index] == 'e'))
-						return TokenNameinterface;
+						return TokenNameInterface;
 					else
 						return TokenNameIdentifier;
 				case 10 :
@@ -2755,7 +2755,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 'n')
 							&& (data[++index] == 't')
 							&& (data[++index] == 's'))
-							return TokenNameimplements;
+							return TokenNameImplements;
 						else
 							return TokenNameIdentifier;
 					else
@@ -2768,7 +2768,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 'e')
 							&& (data[++index] == 'o')
 							&& (data[++index] == 'f'))
-							return TokenNameinstanceof;
+							return TokenNameInstanceof;
 						else
 							return TokenNameIdentifier;
 
@@ -2781,7 +2781,7 @@ public int scanIdentifierOrKeyword() {
 				if ((data[++index] == 'o')
 					&& (data[++index] == 'n')
 					&& (data[++index] == 'g')) {
-					return TokenNamelong;
+					return TokenNameLong;
 				}
 			}
 			return TokenNameIdentifier;
@@ -2790,12 +2790,12 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 3 :
 					if ((data[++index] == 'e') && (data[++index] == 'w'))
-						return TokenNamenew;
+						return TokenNameNew;
 					else
 						return TokenNameIdentifier;
 				case 4 :
 					if ((data[++index] == 'u') && (data[++index] == 'l') && (data[++index] == 'l'))
-						return TokenNamenull;
+						return TokenNameNull;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -2804,7 +2804,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'v')
 						&& (data[++index] == 'e')) {
-						return TokenNamenative;
+						return TokenNameNative;
 					} else
 						return TokenNameIdentifier;
 				default :
@@ -2819,7 +2819,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'c')) {
-						return TokenNamepublic;
+						return TokenNamePublic;
 					} else
 						return TokenNameIdentifier;
 				case 7 :
@@ -2829,7 +2829,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 'a')
 							&& (data[++index] == 'g')
 							&& (data[++index] == 'e'))
-							return TokenNamepackage;
+							return TokenNamePackage;
 						else
 							return TokenNameIdentifier;
 					else
@@ -2839,7 +2839,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 'a')
 							&& (data[++index] == 't')
 							&& (data[++index] == 'e')) {
-							return TokenNameprivate;
+							return TokenNamePrivate;
 						} else
 							return TokenNameIdentifier;
 				case 9 :
@@ -2851,7 +2851,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 't')
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'd')) {
-						return TokenNameprotected;
+						return TokenNameProtected;
 					} else
 						return TokenNameIdentifier;
 
@@ -2866,7 +2866,7 @@ public int scanIdentifierOrKeyword() {
 					&& (data[++index] == 'u')
 					&& (data[++index] == 'r')
 					&& (data[++index] == 'n')) {
-					return TokenNamereturn;
+					return TokenNameReturn;
 				}
 			}
 			return TokenNameIdentifier;
@@ -2876,7 +2876,7 @@ public int scanIdentifierOrKeyword() {
 				case 5 :
 					if (data[++index] == 'h')
 						if ((data[++index] == 'o') && (data[++index] == 'r') && (data[++index] == 't'))
-							return TokenNameshort;
+							return TokenNameShort;
 						else
 							return TokenNameIdentifier;
 					else
@@ -2884,7 +2884,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 'p')
 							&& (data[++index] == 'e')
 							&& (data[++index] == 'r'))
-							return TokenNamesuper;
+							return TokenNameSuper;
 						else
 							return TokenNameIdentifier;
 
@@ -2894,7 +2894,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 't')
 							&& (data[++index] == 'i')
 							&& (data[++index] == 'c')) {
-							return TokenNamestatic;
+							return TokenNameStatic;
 						} else
 							return TokenNameIdentifier;
 					else
@@ -2903,7 +2903,7 @@ public int scanIdentifierOrKeyword() {
 							&& (data[++index] == 't')
 							&& (data[++index] == 'c')
 							&& (data[++index] == 'h'))
-							return TokenNameswitch;
+							return TokenNameSwitch;
 						else
 							return TokenNameIdentifier;
 				case 8 :
@@ -2914,7 +2914,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 't')
 						&& (data[++index] == 'f')
 						&& (data[++index] == 'p'))
-						return TokenNamestrictfp;
+						return TokenNameStrictfp;
 					else
 						return TokenNameIdentifier;
 				case 12 :
@@ -2929,7 +2929,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'z')
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'd')) {
-						return TokenNamesynchronized;
+						return TokenNameSynchronized;
 					} else
 						return TokenNameIdentifier;
 				default :
@@ -2940,18 +2940,18 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 3 :
 					if ((data[++index] == 'r') && (data[++index] == 'y'))
-						return TokenNametry;
+						return TokenNameTry;
 					else
 						return TokenNameIdentifier;
 				case 4 :
 					if (data[++index] == 'h') 
 						if ((data[++index] == 'i') && (data[++index] == 's'))
-							return TokenNamethis;
+							return TokenNameThis;
 						else
 							return TokenNameIdentifier;
 					else
 						if ((data[index] == 'r') && (data[++index] == 'u') && (data[++index] == 'e'))
-							return TokenNametrue;
+							return TokenNameTrue;
 						else
 							return TokenNameIdentifier;
 				case 5 :
@@ -2959,7 +2959,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'r')
 						&& (data[++index] == 'o')
 						&& (data[++index] == 'w'))
-						return TokenNamethrow;
+						return TokenNameThrow;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -2968,7 +2968,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'o')
 						&& (data[++index] == 'w')
 						&& (data[++index] == 's'))
-						return TokenNamethrows;
+						return TokenNameThrows;
 					else
 						return TokenNameIdentifier;
 				case 9 :
@@ -2980,7 +2980,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'n')
 						&& (data[++index] == 't')) {
-						return TokenNametransient;
+						return TokenNameTransient;
 					} else
 						return TokenNameIdentifier;
 
@@ -2992,7 +2992,7 @@ public int scanIdentifierOrKeyword() {
 			switch (length) {
 				case 4 :
 					if ((data[++index] == 'o') && (data[++index] == 'i') && (data[++index] == 'd'))
-						return TokenNamevoid;
+						return TokenNameVoid;
 					else
 						return TokenNameIdentifier;
 				case 8 :
@@ -3003,7 +3003,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e')) {
-						return TokenNamevolatile;
+						return TokenNameVolatile;
 					} else
 						return TokenNameIdentifier;
 
@@ -3018,7 +3018,7 @@ public int scanIdentifierOrKeyword() {
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e'))
-						return TokenNamewhile;
+						return TokenNameWhile;
 					else
 						return TokenNameIdentifier;
 					//case 6:if ( (data[++index] =='i') && (data[++index]=='d') && (data[++index]=='e') && (data[++index]=='f')&& (data[++index]=='p'))
@@ -3359,101 +3359,101 @@ public final String toStringAction(int act) {
 	switch (act) {
 		case TokenNameIdentifier :
 			return "Identifier(" + new String(getCurrentTokenSource()) + ")"; //$NON-NLS-1$ //$NON-NLS-2$
-		case TokenNameabstract :
+		case TokenNameAbstract :
 			return "abstract"; //$NON-NLS-1$
-		case TokenNameboolean :
+		case TokenNameBoolean :
 			return "boolean"; //$NON-NLS-1$
-		case TokenNamebreak :
+		case TokenNameBreak :
 			return "break"; //$NON-NLS-1$
-		case TokenNamebyte :
+		case TokenNameByte :
 			return "byte"; //$NON-NLS-1$
-		case TokenNamecase :
+		case TokenNameCase :
 			return "case"; //$NON-NLS-1$
-		case TokenNamecatch :
+		case TokenNameCatch :
 			return "catch"; //$NON-NLS-1$
-		case TokenNamechar :
+		case TokenNameChar :
 			return "char"; //$NON-NLS-1$
-		case TokenNameclass :
+		case TokenNameClass :
 			return "class"; //$NON-NLS-1$
-		case TokenNamecontinue :
+		case TokenNameContinue :
 			return "continue"; //$NON-NLS-1$
-		case TokenNamedefault :
+		case TokenNameDefault :
 			return "default"; //$NON-NLS-1$
-		case TokenNamedo :
+		case TokenNameDo :
 			return "do"; //$NON-NLS-1$
-		case TokenNamedouble :
+		case TokenNameDouble :
 			return "double"; //$NON-NLS-1$
-		case TokenNameelse :
+		case TokenNameElse :
 			return "else"; //$NON-NLS-1$
-		case TokenNameextends :
+		case TokenNameExtends :
 			return "extends"; //$NON-NLS-1$
-		case TokenNamefalse :
+		case TokenNameFalse :
 			return "false"; //$NON-NLS-1$
-		case TokenNamefinal :
+		case TokenNameFinal :
 			return "final"; //$NON-NLS-1$
-		case TokenNamefinally :
+		case TokenNameFinally :
 			return "finally"; //$NON-NLS-1$
-		case TokenNamefloat :
+		case TokenNameFloat :
 			return "float"; //$NON-NLS-1$
-		case TokenNamefor :
+		case TokenNameFor :
 			return "for"; //$NON-NLS-1$
-		case TokenNameif :
+		case TokenNameIf :
 			return "if"; //$NON-NLS-1$
-		case TokenNameimplements :
+		case TokenNameImplements :
 			return "implements"; //$NON-NLS-1$
-		case TokenNameimport :
+		case TokenNameImport :
 			return "import"; //$NON-NLS-1$
-		case TokenNameinstanceof :
+		case TokenNameInstanceof :
 			return "instanceof"; //$NON-NLS-1$
-		case TokenNameint :
+		case TokenNameInt :
 			return "int"; //$NON-NLS-1$
-		case TokenNameinterface :
+		case TokenNameInterface :
 			return "interface"; //$NON-NLS-1$
-		case TokenNamelong :
+		case TokenNameLong :
 			return "long"; //$NON-NLS-1$
-		case TokenNamenative :
+		case TokenNameNative :
 			return "native"; //$NON-NLS-1$
-		case TokenNamenew :
+		case TokenNameNew :
 			return "new"; //$NON-NLS-1$
-		case TokenNamenull :
+		case TokenNameNull :
 			return "null"; //$NON-NLS-1$
-		case TokenNamepackage :
+		case TokenNamePackage :
 			return "package"; //$NON-NLS-1$
-		case TokenNameprivate :
+		case TokenNamePrivate :
 			return "private"; //$NON-NLS-1$
-		case TokenNameprotected :
+		case TokenNameProtected :
 			return "protected"; //$NON-NLS-1$
-		case TokenNamepublic :
+		case TokenNamePublic :
 			return "public"; //$NON-NLS-1$
-		case TokenNamereturn :
+		case TokenNameReturn :
 			return "return"; //$NON-NLS-1$
-		case TokenNameshort :
+		case TokenNameShort :
 			return "short"; //$NON-NLS-1$
-		case TokenNamestatic :
+		case TokenNameStatic :
 			return "static"; //$NON-NLS-1$
-		case TokenNamesuper :
+		case TokenNameSuper :
 			return "super"; //$NON-NLS-1$
-		case TokenNameswitch :
+		case TokenNameSwitch :
 			return "switch"; //$NON-NLS-1$
-		case TokenNamesynchronized :
+		case TokenNameSynchronized :
 			return "synchronized"; //$NON-NLS-1$
-		case TokenNamethis :
+		case TokenNameThis :
 			return "this"; //$NON-NLS-1$
-		case TokenNamethrow :
+		case TokenNameThrow :
 			return "throw"; //$NON-NLS-1$
-		case TokenNamethrows :
+		case TokenNameThrows :
 			return "throws"; //$NON-NLS-1$
-		case TokenNametransient :
+		case TokenNameTransient :
 			return "transient"; //$NON-NLS-1$
-		case TokenNametrue :
+		case TokenNameTrue :
 			return "true"; //$NON-NLS-1$
-		case TokenNametry :
+		case TokenNameTry :
 			return "try"; //$NON-NLS-1$
-		case TokenNamevoid :
+		case TokenNameVoid :
 			return "void"; //$NON-NLS-1$
-		case TokenNamevolatile :
+		case TokenNameVolatile :
 			return "volatile"; //$NON-NLS-1$
-		case TokenNamewhile :
+		case TokenNameWhile :
 			return "while"; //$NON-NLS-1$
 
 		case TokenNameIntegerLiteral :

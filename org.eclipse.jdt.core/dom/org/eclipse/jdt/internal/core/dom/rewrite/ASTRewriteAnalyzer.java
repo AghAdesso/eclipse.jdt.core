@@ -1454,7 +1454,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 	private int getPosAfterTry(int pos) {
 		try {
 			int nextToken= getScanner().readNext(pos, true);
-			if (nextToken == TerminalTokens.TokenNametry) {
+			if (nextToken == TerminalTokens.TokenNameTry) {
 				return getScanner().getCurrentEndOffset();
 			}
 		} catch (CoreException e) {
@@ -1576,19 +1576,19 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 				}
 				boolean keep= true;
 				switch (tok) {
-					case TerminalTokens.TokenNamepublic: keep= Modifier.isPublic(newModifiers); break;
-					case TerminalTokens.TokenNameprotected: keep= Modifier.isProtected(newModifiers); break;
-					case TerminalTokens.TokenNameprivate: keep= Modifier.isPrivate(newModifiers); break;
-					case TerminalTokens.TokenNamestatic: keep= Modifier.isStatic(newModifiers); break;
-					case TerminalTokens.TokenNamefinal: keep= Modifier.isFinal(newModifiers); break;
-					case TerminalTokens.TokenNameabstract: keep= Modifier.isAbstract(newModifiers); break;
-					case TerminalTokens.TokenNamenative: keep= Modifier.isNative(newModifiers); break;
-					case TerminalTokens.TokenNamevolatile: keep= Modifier.isVolatile(newModifiers); break;
-					case TerminalTokens.TokenNamestrictfp: keep= Modifier.isStrictfp(newModifiers); break;
-					case TerminalTokens.TokenNametransient: keep= Modifier.isTransient(newModifiers); break;
-					case TerminalTokens.TokenNamesynchronized: keep= Modifier.isSynchronized(newModifiers); break;
+					case TerminalTokens.TokenNamePublic: keep= Modifier.isPublic(newModifiers); break;
+					case TerminalTokens.TokenNameProtected: keep= Modifier.isProtected(newModifiers); break;
+					case TerminalTokens.TokenNamePrivate: keep= Modifier.isPrivate(newModifiers); break;
+					case TerminalTokens.TokenNameStatic: keep= Modifier.isStatic(newModifiers); break;
+					case TerminalTokens.TokenNameFinal: keep= Modifier.isFinal(newModifiers); break;
+					case TerminalTokens.TokenNameAbstract: keep= Modifier.isAbstract(newModifiers); break;
+					case TerminalTokens.TokenNameNative: keep= Modifier.isNative(newModifiers); break;
+					case TerminalTokens.TokenNameVolatile: keep= Modifier.isVolatile(newModifiers); break;
+					case TerminalTokens.TokenNameStrictfp: keep= Modifier.isStrictfp(newModifiers); break;
+					case TerminalTokens.TokenNameTransient: keep= Modifier.isTransient(newModifiers); break;
+					case TerminalTokens.TokenNameSynchronized: keep= Modifier.isSynchronized(newModifiers); break;
 					case TerminalTokens.TokenNameRestrictedIdentifiersealed: keep= Modifier.isSealed(newModifiers); break;
-					case TerminalTokens.TokenNamenon_sealed: keep= Modifier.isNonSealed(newModifiers); break;
+					case TerminalTokens.TokenNameNonSealed: keep= Modifier.isNonSealed(newModifiers); break;
 					default:
 						break loop;
 				}
@@ -1884,7 +1884,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 		boolean invertType= isChanged(node, TypeDeclaration.INTERFACE_PROPERTY);
 		if (invertType) {
 			try {
-				int typeToken= isInterface ? TerminalTokens.TokenNameinterface : TerminalTokens.TokenNameclass;
+				int typeToken= isInterface ? TerminalTokens.TokenNameInterface : TerminalTokens.TokenNameClass;
 				int startPosition = node.getStartPosition();
 				if (!isJLS2) {
 					List modifiers = node.modifiers();
@@ -2095,7 +2095,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 				int qualChangeKind = qualEvent.getChangeKind();
 				TextEditGroup qualGroup = getEditGroup(qualEvent);
 				if (qualChangeKind == RewriteEvent.INSERTED) {
-					int pos= getScanner().getTokenStartOffset(TerminalTokens.TokenNamethis, offset);
+					int pos= getScanner().getTokenStartOffset(TerminalTokens.TokenNameThis, offset);
 					doTextInsert(pos, (ASTNode) qualEvent.getNewValue(), 0, false, qualGroup);
 					doTextInsert(pos, ".", qualGroup); //$NON-NLS-1$
 				} else if (qualChangeKind == RewriteEvent.REMOVED) {
@@ -2110,7 +2110,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 					doTextInsert(elemOffset, newQual, 0, false, qualGroup);
 				}
 			}
-			offset=  getScanner().getTokenEndOffset(TerminalTokens.TokenNamethis, offset);
+			offset=  getScanner().getTokenEndOffset(TerminalTokens.TokenNameThis, offset);
 			if (newParamCount > 0 && oldParamCount == 0) {
 				doTextInsert(offset, ", ", editGroup); //$NON-NLS-1$
 			}
@@ -2260,7 +2260,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 				boolean wasOpen= ((Boolean) event.getOriginalValue()).booleanValue();
 				if (wasOpen) {
 					this.tokenScanner.getScanner().fakeInModule = true;
-					int endPos= getScanner().getTokenStartOffset(TerminalTokens.TokenNamemodule, pos);
+					int endPos= getScanner().getTokenStartOffset(TerminalTokens.TokenNameModule, pos);
 					doTextRemove(pos, endPos - pos, getEditGroup(event));
 				} else {
 					doTextInsert(pos, "open ", getEditGroup(event)); //$NON-NLS-1$
@@ -2396,7 +2396,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 	@Override
 	public boolean visit(ReturnStatement node) {
 		try {
-			this.beforeRequiredSpaceIndex = getScanner().getTokenEndOffset(TerminalTokens.TokenNamereturn, node.getStartPosition());
+			this.beforeRequiredSpaceIndex = getScanner().getTokenEndOffset(TerminalTokens.TokenNameReturn, node.getStartPosition());
 
 			if (!hasChildrenChanges(node)) {
 				return doVisitUnchangedChildren(node);
@@ -2416,7 +2416,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 		if (!hasChildrenChanges(node)) {
 			return doVisitUnchangedChildren(node);
 		}
-		int pos = getPosAfterToken(node.getStartPosition(), TerminalTokens.TokenNamerequires);
+		int pos = getPosAfterToken(node.getStartPosition(), TerminalTokens.TokenNameRequires);
 		rewriteNodeList(node, RequiresDirective.MODIFIERS_PROPERTY, pos, String.valueOf(' '), String.valueOf(' '));
 		rewriteRequiredNode(node, RequiresDirective.NAME_PROPERTY);
 		return false;
@@ -2729,7 +2729,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 		}
 
 		try {
-			int offset= getScanner().getTokenEndOffset(TerminalTokens.TokenNamebreak, node.getStartPosition());
+			int offset= getScanner().getTokenEndOffset(TerminalTokens.TokenNameBreak, node.getStartPosition());
 			rewriteNode(node, BreakStatement.LABEL_PROPERTY, offset, ASTRewriteFormatter.SPACE); // space between break and label
 		} catch (CoreException e) {
 			handleException(e);
@@ -2795,7 +2795,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 		} else {
 			if (isChanged(node, ClassInstanceCreation.TYPE_ARGUMENTS_PROPERTY)) {
 				try {
-					pos= getScanner().getTokenEndOffset(TerminalTokens.TokenNamenew, pos); //after 'new'
+					pos= getScanner().getTokenEndOffset(TerminalTokens.TokenNameNew, pos); //after 'new'
 					rewriteOptionalTypeParameters(node, ClassInstanceCreation.TYPE_ARGUMENTS_PROPERTY, pos, " ", true, true); //$NON-NLS-1$
 				} catch (CoreException e) {
 					handleException(e);
@@ -2868,7 +2868,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 		}
 
 		try {
-			int offset= getScanner().getTokenEndOffset(TerminalTokens.TokenNamecontinue, node.getStartPosition());
+			int offset= getScanner().getTokenEndOffset(TerminalTokens.TokenNameContinue, node.getStartPosition());
 			rewriteNode(node, ContinueStatement.LABEL_PROPERTY, offset, ASTRewriteFormatter.SPACE); // space between continue and label
 		} catch (CoreException e) {
 			handleException(e);
@@ -2907,10 +2907,10 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 		try {
 			RewriteEvent event= getEvent(node, DoStatement.BODY_PROPERTY);
 			if (event != null && event.getChangeKind() == RewriteEvent.REPLACED) {
-				int startOffset= getScanner().getTokenEndOffset(TerminalTokens.TokenNamedo, pos);
+				int startOffset= getScanner().getTokenEndOffset(TerminalTokens.TokenNameDo, pos);
 				ASTNode body= (ASTNode) event.getOriginalValue();
 				int bodyEnd= body.getStartPosition() + body.getLength();
-				int endPos= getScanner().getTokenStartOffset(TerminalTokens.TokenNamewhile, bodyEnd);
+				int endPos= getScanner().getTokenStartOffset(TerminalTokens.TokenNameWhile, bodyEnd);
 				rewriteBodyNode(node, DoStatement.BODY_PROPERTY, startOffset, endPos, getIndent(node.getStartPosition()), this.formatter.DO_BLOCK); // body
 			} else {
 				voidVisit(node, DoStatement.BODY_PROPERTY);
@@ -3066,7 +3066,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 				Object elseStatement= getOriginalValue(node, IfStatement.ELSE_STATEMENT_PROPERTY);
 				if (elseStatement != null) {
 					ASTNode thenStatement = (ASTNode) thenEvent.getOriginalValue();
-					endPos= getScanner().getTokenStartOffset(TerminalTokens.TokenNameelse, thenStatement.getStartPosition() + thenStatement.getLength()); // else keyword
+					endPos= getScanner().getTokenStartOffset(TerminalTokens.TokenNameElse, thenStatement.getStartPosition() + thenStatement.getLength()); // else keyword
 				}
 				if (elseStatement == null || elseChange != RewriteEvent.UNCHANGED) {
 					pos= rewriteBodyNode(node, IfStatement.THEN_STATEMENT_PROPERTY, pos, endPos, indent, this.formatter.IF_BLOCK_NO_ELSE);
@@ -3103,10 +3103,10 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 			RewriteEvent event= getEvent(node, ImportDeclaration.STATIC_PROPERTY);
 			if (event != null && event.getChangeKind() != RewriteEvent.UNCHANGED) {
 				try {
-					int pos= getScanner().getTokenEndOffset(TerminalTokens.TokenNameimport, node.getStartPosition());
+					int pos= getScanner().getTokenEndOffset(TerminalTokens.TokenNameImport, node.getStartPosition());
 					boolean wasStatic= ((Boolean) event.getOriginalValue()).booleanValue();
 					if (wasStatic) {
-						int endPos= getScanner().getTokenEndOffset(TerminalTokens.TokenNamestatic, pos);
+						int endPos= getScanner().getTokenEndOffset(TerminalTokens.TokenNameStatic, pos);
 						doTextRemove(pos, endPos - pos, getEditGroup(event));
 					} else {
 						doTextInsert(pos, " static", getEditGroup(event)); //$NON-NLS-1$
@@ -4004,7 +4004,7 @@ public final class ASTRewriteAnalyzer extends ASTVisitor {
 	@Override
 	public boolean visit(ThrowStatement node) {
 		try {
-			this.beforeRequiredSpaceIndex = getScanner().getTokenEndOffset(TerminalTokens.TokenNamethrow, node.getStartPosition());
+			this.beforeRequiredSpaceIndex = getScanner().getTokenEndOffset(TerminalTokens.TokenNameThrow, node.getStartPosition());
 
 			if (!hasChildrenChanges(node)) {
 				return doVisitUnchangedChildren(node);

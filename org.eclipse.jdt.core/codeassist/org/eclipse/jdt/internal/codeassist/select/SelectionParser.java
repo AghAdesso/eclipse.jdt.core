@@ -1453,7 +1453,7 @@ protected void consumeToken(int token) {
 	// if in a method or if in a field initializer
 	if (isInsideMethod() || isInsideFieldInitialization()) {
 		switch (token) {
-			case TokenNamecase :
+			case TokenNameCase :
 				pushOnElementStack(K_BETWEEN_CASE_AND_COLONORARROW, this.expressionPtr);
 				break;
 			case TokenNameCOMMA :
@@ -1477,7 +1477,7 @@ protected void consumeToken(int token) {
 						pushOnElementStack(K_SWITCH_EXPRESSION_DELIMITTER);
 				}
 				break;
-			case TokenNamereturn:
+			case TokenNameReturn:
 				pushOnElementStack(K_INSIDE_RETURN_STATEMENT, this.bracketDepth);
 				break;
 			case TokenNameSEMICOLON:
@@ -1489,7 +1489,7 @@ protected void consumeToken(int token) {
 						break;
 				}
 				break;
-			case TokenNameelse:
+			case TokenNameElse:
 				pushOnElementStack(K_INSIDE_ELSE, this.expressionPtr, this.astPtr);
 				break;
 			case TokenNameAND_AND:
@@ -1502,9 +1502,9 @@ protected void consumeToken(int token) {
 				pushOnElementStack(K_INSIDE_WHEN);
 				break;
 			case TokenNameLPAREN:
-				if (lastToken == TokenNameif) {
+				if (lastToken == TokenNameIf) {
 					pushOnElementStack(K_INSIDE_IF, this.expressionPtr, this.astPtr);
-				} else if (lastToken == TokenNamewhile) {
+				} else if (lastToken == TokenNameWhile) {
 					pushOnElementStack(K_INSIDE_WHILE, this.expressionPtr, this.astPtr);
 				} else if (lastToken == TokenNameIdentifier) {
 					if (betweenCaseAndColonOrArrow  && topKnownElementKind(SELECTION_OR_ASSIST_PARSER) == K_SELECTOR) {

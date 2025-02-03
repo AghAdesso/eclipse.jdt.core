@@ -550,31 +550,31 @@ class DocCommentParser extends AbstractCommentParser {
 			typeRef = this.ast.internalNewName(identifiers);
 		} else {
 			switch (primitiveToken) {
-				case TerminalTokens.TokenNamevoid :
+				case TerminalTokens.TokenNameVoid :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.VOID);
 					break;
-				case TerminalTokens.TokenNameboolean :
+				case TerminalTokens.TokenNameBoolean :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.BOOLEAN);
 					break;
-				case TerminalTokens.TokenNamebyte :
+				case TerminalTokens.TokenNameByte :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.BYTE);
 					break;
-				case TerminalTokens.TokenNamechar :
+				case TerminalTokens.TokenNameChar :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.CHAR);
 					break;
-				case TerminalTokens.TokenNamedouble :
+				case TerminalTokens.TokenNameDouble :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.DOUBLE);
 					break;
-				case TerminalTokens.TokenNamefloat :
+				case TerminalTokens.TokenNameFloat :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.FLOAT);
 					break;
-				case TerminalTokens.TokenNameint :
+				case TerminalTokens.TokenNameInt :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.INT);
 					break;
-				case TerminalTokens.TokenNamelong :
+				case TerminalTokens.TokenNameLong :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.LONG);
 					break;
-				case TerminalTokens.TokenNameshort :
+				case TerminalTokens.TokenNameShort :
 					typeRef = this.ast.newPrimitiveType(PrimitiveType.SHORT);
 					break;
 				default:
@@ -989,65 +989,65 @@ class DocCommentParser extends AbstractCommentParser {
 						createTag();
 				}
 				break;
-			case TerminalTokens.TokenNamereturn :
+			case TerminalTokens.TokenNameReturn :
 				this.tagValue = TAG_RETURN_VALUE;
 				valid = parseReturn();
 				break;
-			case TerminalTokens.TokenNamethrows :
+			case TerminalTokens.TokenNameThrows :
 				this.tagValue = TAG_THROWS_VALUE;
 				valid = parseThrows();
 				break;
-			case TerminalTokens.TokenNameabstract:
-			case TerminalTokens.TokenNameassert:
-			case TerminalTokens.TokenNameboolean:
-			case TerminalTokens.TokenNamebreak:
-			case TerminalTokens.TokenNamebyte:
-			case TerminalTokens.TokenNamecase:
-			case TerminalTokens.TokenNamecatch:
-			case TerminalTokens.TokenNamechar:
-			case TerminalTokens.TokenNameclass:
-			case TerminalTokens.TokenNamecontinue:
-			case TerminalTokens.TokenNamedefault:
-			case TerminalTokens.TokenNamedo:
-			case TerminalTokens.TokenNamedouble:
-			case TerminalTokens.TokenNameelse:
-			case TerminalTokens.TokenNameextends:
-			case TerminalTokens.TokenNamefalse:
-			case TerminalTokens.TokenNamefinal:
-			case TerminalTokens.TokenNamefinally:
-			case TerminalTokens.TokenNamefloat:
-			case TerminalTokens.TokenNamefor:
-			case TerminalTokens.TokenNameif:
-			case TerminalTokens.TokenNameimplements:
-			case TerminalTokens.TokenNameimport:
-			case TerminalTokens.TokenNameinstanceof:
-			case TerminalTokens.TokenNameint:
-			case TerminalTokens.TokenNameinterface:
-			case TerminalTokens.TokenNamelong:
-			case TerminalTokens.TokenNamenative:
-			case TerminalTokens.TokenNamenew:
-			case TerminalTokens.TokenNamenull:
-			case TerminalTokens.TokenNamepackage:
-			case TerminalTokens.TokenNameprivate:
-			case TerminalTokens.TokenNameprotected:
-			case TerminalTokens.TokenNamepublic:
-			case TerminalTokens.TokenNameshort:
-			case TerminalTokens.TokenNamestatic:
-			case TerminalTokens.TokenNamestrictfp:
-			case TerminalTokens.TokenNamesuper:
-			case TerminalTokens.TokenNameswitch:
-			case TerminalTokens.TokenNamesynchronized:
-			case TerminalTokens.TokenNamethis:
-			case TerminalTokens.TokenNamethrow:
-			case TerminalTokens.TokenNametransient:
-			case TerminalTokens.TokenNametrue:
-			case TerminalTokens.TokenNametry:
-			case TerminalTokens.TokenNamevoid:
-			case TerminalTokens.TokenNamevolatile:
-			case TerminalTokens.TokenNamewhile:
-			case TerminalTokens.TokenNameenum :
-			case TerminalTokens.TokenNameconst :
-			case TerminalTokens.TokenNamegoto :
+			case TerminalTokens.TokenNameAbstract:
+			case TerminalTokens.TokenNameAssert:
+			case TerminalTokens.TokenNameBoolean:
+			case TerminalTokens.TokenNameBreak:
+			case TerminalTokens.TokenNameByte:
+			case TerminalTokens.TokenNameCase:
+			case TerminalTokens.TokenNameCatch:
+			case TerminalTokens.TokenNameChar:
+			case TerminalTokens.TokenNameClass:
+			case TerminalTokens.TokenNameContinue:
+			case TerminalTokens.TokenNameDefault:
+			case TerminalTokens.TokenNameDo:
+			case TerminalTokens.TokenNameDouble:
+			case TerminalTokens.TokenNameElse:
+			case TerminalTokens.TokenNameExtends:
+			case TerminalTokens.TokenNameFalse:
+			case TerminalTokens.TokenNameFinal:
+			case TerminalTokens.TokenNameFinally:
+			case TerminalTokens.TokenNameFloat:
+			case TerminalTokens.TokenNameFor:
+			case TerminalTokens.TokenNameIf:
+			case TerminalTokens.TokenNameImplements:
+			case TerminalTokens.TokenNameImport:
+			case TerminalTokens.TokenNameInstanceof:
+			case TerminalTokens.TokenNameInt:
+			case TerminalTokens.TokenNameInterface:
+			case TerminalTokens.TokenNameLong:
+			case TerminalTokens.TokenNameNative:
+			case TerminalTokens.TokenNameNew:
+			case TerminalTokens.TokenNameNull:
+			case TerminalTokens.TokenNamePackage:
+			case TerminalTokens.TokenNamePrivate:
+			case TerminalTokens.TokenNameProtected:
+			case TerminalTokens.TokenNamePublic:
+			case TerminalTokens.TokenNameShort:
+			case TerminalTokens.TokenNameStatic:
+			case TerminalTokens.TokenNameStrictfp:
+			case TerminalTokens.TokenNameSuper:
+			case TerminalTokens.TokenNameSwitch:
+			case TerminalTokens.TokenNameSynchronized:
+			case TerminalTokens.TokenNameThis:
+			case TerminalTokens.TokenNameThrow:
+			case TerminalTokens.TokenNameTransient:
+			case TerminalTokens.TokenNameTrue:
+			case TerminalTokens.TokenNameTry:
+			case TerminalTokens.TokenNameVoid:
+			case TerminalTokens.TokenNameVolatile:
+			case TerminalTokens.TokenNameWhile:
+			case TerminalTokens.TokenNameEnum :
+			case TerminalTokens.TokenNameConst :
+			case TerminalTokens.TokenNameGoto :
 				this.tagValue = TAG_OTHERS_VALUE;
 				createTag();
 				break;

@@ -676,15 +676,15 @@ public abstract class AbstractCommentParser {
 					consumeToken();
 					break;
 
-				case TerminalTokens.TokenNamevoid :
-				case TerminalTokens.TokenNameboolean :
-				case TerminalTokens.TokenNamebyte :
-				case TerminalTokens.TokenNamechar :
-				case TerminalTokens.TokenNamedouble :
-				case TerminalTokens.TokenNamefloat :
-				case TerminalTokens.TokenNameint :
-				case TerminalTokens.TokenNamelong :
-				case TerminalTokens.TokenNameshort :
+				case TerminalTokens.TokenNameVoid :
+				case TerminalTokens.TokenNameBoolean :
+				case TerminalTokens.TokenNameByte :
+				case TerminalTokens.TokenNameChar :
+				case TerminalTokens.TokenNameDouble :
+				case TerminalTokens.TokenNameFloat :
+				case TerminalTokens.TokenNameInt :
+				case TerminalTokens.TokenNameLong :
+				case TerminalTokens.TokenNameShort :
 					if (iToken > 0) {
 						throw new InvalidInputException();
 					}

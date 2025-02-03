@@ -42,13 +42,71 @@ $Terminals
 
 	Identifier
 
-	abstract assert boolean break byte case catch char class
-	continue const default do double else enum extends false final finally float
-	for goto if implements import instanceof int
-	interface long native new non-sealed null package private
-	protected public return short static strictfp super switch
-	synchronized this throw throws transient true try void
-	volatile while module open requires transitive exports opens to uses provides with
+	Abstract
+	Assert
+	Boolean
+	Break
+	Byte
+	Case
+	Catch
+	Char
+	Class
+	Continue
+	Const
+	Default
+	Do
+	Double
+	Else
+	Enum
+	Extends
+	False
+	Final
+	Finally
+	Float
+	For
+	Goto
+	If
+	Implements
+	Import
+	Instanceof
+	Int
+	Interface
+	Long
+	Native
+	New
+	NonSealed
+	Null
+	Package
+	Private
+	Protected
+	Public
+	Return
+	Short
+	Static
+	Strictfp
+	Super
+	Switch
+	Synchronized
+	This
+	Throw
+	Throws
+	Transient
+	True
+	Try
+	Void
+	Volatile
+	While
+	Module
+	Open
+	Requires
+	Transitive
+	Exports
+	Opens
+	To
+	Uses
+	Provides
+	With
+
 
 	IntegerLiteral
 	LongLiteral
@@ -127,6 +185,71 @@ $Terminals
 
 $Alias
 
+	'abstract' ::= Abstract
+	'assert' ::= Assert
+	'boolean' ::= Boolean
+	'break' ::= Break
+	'byte' ::= Byte
+	'case' ::= Case
+	'catch' ::= Catch
+	'char' ::= Char
+	'class' ::= Class
+	'continue' ::= Continue
+	'const' ::= Const
+	'default' ::= Default
+	'do' ::= Do
+	'double' ::= Double
+	'else' ::= Else
+	'enum' ::= Enum
+	'extends' ::= Extends
+	'false' ::= False
+	'final' ::= Final
+	'finally' ::= Finally
+	'float' ::= Float
+	'for' ::= For
+	'goto' ::= Goto
+	'if' ::= If
+	'implements' ::= Implements
+	'import' ::= Import
+	'instanceof' ::= Instanceof
+	'int' ::= Int
+	'interface' ::= Interface
+	'long' ::= Long
+	'native' ::= Native
+	'new' ::= New
+	'non-sealed' ::= NonSealed
+	'null' ::= Null
+	'package' ::= Package
+	'private' ::= Private
+	'protected' ::= Protected
+	'public' ::= Public
+	'return' ::= Return
+	'short' ::= Short
+	'static' ::= Static
+	'strictfp' ::= Strictfp
+	'super' ::= Super
+	'switch' ::= Switch
+	'synchronized' ::= Synchronized
+	'this' ::= This
+	'throw' ::= Throw
+	'throws' ::= Throws
+	'transient' ::= Transient
+	'true' ::= True
+	'try' ::= Try
+	'void' ::= Void
+	'volatile' ::= Volatile
+	'while' ::= While
+	'module' ::= Module
+	'open' ::= Open
+	'requires' ::= Requires
+	'transitive' ::= Transitive
+	'exports' ::= Exports
+	'opens' ::= Opens
+	'to' ::= To
+	'uses' ::= Uses
+	'provides' ::= Provides
+	'with' ::= With
+	
 	'::'   ::= COLON_COLON
 	'->'   ::= ARROW
 	'++'   ::= PLUS_PLUS
@@ -241,12 +364,12 @@ Literal -> DoubleLiteral
 Literal -> CharacterLiteral
 Literal -> StringLiteral
 Literal -> TextBlock
-Literal -> null
+Literal -> 'null'
 Literal -> BooleanLiteral
 
 /:$readableName Literal:/
-BooleanLiteral -> true
-BooleanLiteral -> false
+BooleanLiteral -> 'true'
+BooleanLiteral -> 'false'
 /:$readableName BooleanLiteral:/
 
 Type ::= PrimitiveType
@@ -1064,7 +1187,7 @@ InterfaceHeaderName ::= InterfaceHeaderName1 TypeParameters
 InterfaceHeaderName -> InterfaceHeaderName1
 /:$readableName InterfaceHeaderName:/
 
-InterfaceHeaderName1 ::= Modifiersopt interface Identifier
+InterfaceHeaderName1 ::= Modifiersopt 'interface' Identifier
 /.$putCase consumeInterfaceHeaderName1(); $break ./
 /:$readableName InterfaceHeaderName:/
 
@@ -1662,13 +1785,13 @@ OnlySynchronized ::= 'synchronized'
 
 TryStatement ::= 'try' TryBlock Catches
 /.$putCase consumeStatementTry(false, false); $break ./
-TryStatement ::= 'try' TryBlock Catchesopt Finally
+TryStatement ::= 'try' TryBlock Catchesopt FinallyBlock
 /.$putCase consumeStatementTry(true, false); $break ./
 /:$readableName TryStatement:/
 
 TryStatementWithResources ::= 'try' ResourceSpecification TryBlock Catchesopt
 /.$putCase consumeStatementTry(false, true); $break ./
-TryStatementWithResources ::= 'try' ResourceSpecification TryBlock Catchesopt Finally
+TryStatementWithResources ::= 'try' ResourceSpecification TryBlock Catchesopt FinallyBlock
 /.$putCase consumeStatementTry(true, true); $break ./
 /:$readableName TryStatementWithResources:/
 /:$compliance 1.7:/
@@ -1738,8 +1861,8 @@ CatchClause ::= 'catch' '(' CatchFormalParameter ')' Block
 /.$putCase consumeStatementCatch() ; $break ./
 /:$readableName CatchClause:/
 
-Finally ::= 'finally' Block
-/:$readableName Finally:/
+FinallyBlock ::= 'finally' Block
+/:$readableName FinallyBlock:/
 /:$recovery_template finally { }:/
 
 --18.12 Productions from 14: Expressions
@@ -2901,16 +3024,16 @@ Expression_NotName -> AssignmentExpression_NotName
 -----------------------------------------------
 -- 1.5 features : annotation - Metadata feature jsr175
 -----------------------------------------------
-AnnotationTypeDeclarationHeaderName ::= Modifiers '@' PushRealModifiers interface Identifier
+AnnotationTypeDeclarationHeaderName ::= Modifiers '@' PushRealModifiers 'interface' Identifier
 /.$putCase consumeAnnotationTypeDeclarationHeaderName() ; $break ./
 /:$compliance 1.5:/
-AnnotationTypeDeclarationHeaderName ::= Modifiers '@' PushRealModifiers interface Identifier TypeParameters
+AnnotationTypeDeclarationHeaderName ::= Modifiers '@' PushRealModifiers 'interface' Identifier TypeParameters
 /.$putCase consumeAnnotationTypeDeclarationHeaderNameWithTypeParameters() ; $break ./
 /:$compliance 1.5:/
-AnnotationTypeDeclarationHeaderName ::= '@' PushModifiersForHeader interface Identifier TypeParameters
+AnnotationTypeDeclarationHeaderName ::= '@' PushModifiersForHeader 'interface' Identifier TypeParameters
 /.$putCase consumeAnnotationTypeDeclarationHeaderNameWithTypeParameters() ; $break ./
 /:$compliance 1.5:/
-AnnotationTypeDeclarationHeaderName ::= '@' PushModifiersForHeader interface Identifier
+AnnotationTypeDeclarationHeaderName ::= '@' PushModifiersForHeader 'interface' Identifier
 /.$putCase consumeAnnotationTypeDeclarationHeaderName() ; $break ./
 /:$readableName AnnotationTypeDeclarationHeaderName:/
 /:$compliance 1.5:/

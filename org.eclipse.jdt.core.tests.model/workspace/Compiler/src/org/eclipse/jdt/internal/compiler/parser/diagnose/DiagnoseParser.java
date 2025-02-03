@@ -1183,8 +1183,8 @@ public class DiagnoseParser implements ParserBasicInformation, TerminalTokens {
 
 	private boolean isBetterSymbol(int symbol, int actualSymbol) {
 //		switch (actualSymbol) {
-//			case TokenNameinterface :
-//				if(symbol == TokenNameclass) {
+//			case TokenNameInterface :
+//				if(symbol == TokenNameClass) {
 //					return true;
 //				}
 //				break;

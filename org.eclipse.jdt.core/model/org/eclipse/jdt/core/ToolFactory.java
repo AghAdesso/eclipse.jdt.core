@@ -407,7 +407,7 @@ public class ToolFactory {
 	 * @param tokenizeWhiteSpace if set to <code>false</code>, white spaces will be silently consumed,
 	 * @param assertMode if set to <code>false</code>, occurrences of 'assert' will be reported as identifiers
 	 * ({@link ITerminalSymbols#TokenNameIdentifier}), whereas if set to <code>true</code>, it
-	 * would report assert keywords ({@link ITerminalSymbols#TokenNameassert}). Java 1.4 has introduced
+	 * would report assert keywords ({@link ITerminalSymbols#TokenNameAssert}). Java 1.4 has introduced
 	 * a new 'assert' keyword.
 	 * @param recordLineSeparator if set to <code>true</code>, the scanner will record positions of encountered line
 	 * separator ends. In case of multi-character line separators, the last character position is considered. These positions
@@ -466,7 +466,7 @@ public class ToolFactory {
 	 * considered as valid line separators.
 	 * @param sourceLevel if set to <code>&quot;1.3&quot;</code> or <code>null</code>, occurrences of 'assert' will be reported as identifiers
 	 * ({@link ITerminalSymbols#TokenNameIdentifier}), whereas if set to <code>&quot;1.4&quot;</code>, it
-	 * would report assert keywords ({@link ITerminalSymbols#TokenNameassert}). Java 1.4 has introduced
+	 * would report assert keywords ({@link ITerminalSymbols#TokenNameAssert}). Java 1.4 has introduced
 	 * a new 'assert' keyword.
 	 * @return a scanner
 	 * @see org.eclipse.jdt.core.compiler.IScanner
@@ -520,7 +520,7 @@ public class ToolFactory {
 	 * considered as valid line separators.
 	 * @param sourceLevel if set to <code>&quot;1.3&quot;</code> or <code>null</code>, occurrences of 'assert' will be reported as identifiers
 	 * ({@link ITerminalSymbols#TokenNameIdentifier}), whereas if set to <code>&quot;1.4&quot;</code>, it
-	 * would report assert keywords ({@link ITerminalSymbols#TokenNameassert}). Java 1.4 has introduced
+	 * would report assert keywords ({@link ITerminalSymbols#TokenNameAssert}). Java 1.4 has introduced
 	 * a new 'assert' keyword.
 	 * @param complianceLevel This is used to support the Unicode 4.0 character sets. if set to 1.5 or above,
 	 * the Unicode 4.0 is supported, otherwise Unicode 3.0 is supported.
@@ -558,7 +558,7 @@ public class ToolFactory {
 	 * considered as valid line separators.
 	 * @param sourceLevel if set to <code>&quot;1.3&quot;</code> or <code>null</code>, occurrences of 'assert' will be reported as identifiers
 	 * ({@link ITerminalSymbols#TokenNameIdentifier}), whereas if set to <code>&quot;1.4&quot;</code>, it
-	 * would report assert keywords ({@link ITerminalSymbols#TokenNameassert}). Java 1.4 has introduced
+	 * would report assert keywords ({@link ITerminalSymbols#TokenNameAssert}). Java 1.4 has introduced
 	 * a new 'assert' keyword.
 	 * @param complianceLevel This is used to support the Unicode 4.0 character sets. if set to 1.5 or above,
 	 * the Unicode 4.0 is supported, otherwise Unicode 3.0 is supported.

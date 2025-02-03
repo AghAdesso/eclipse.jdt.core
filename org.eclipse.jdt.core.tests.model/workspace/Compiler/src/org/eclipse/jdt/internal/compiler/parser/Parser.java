@@ -2263,7 +2263,7 @@ protected void consumeConstructorHeaderName() {
 
 	/* recovering - might be an empty message send */
 	if (this.currentElement != null){
-		if (this.lastIgnoredToken == TokenNamenew){ // was an allocation expression
+		if (this.lastIgnoredToken == TokenNameNew){ // was an allocation expression
 			this.lastCheckPoint = this.scanner.startPosition; // force to restart at this exact position				
 			this.restartRecovery = true;
 			return;
@@ -2316,7 +2316,7 @@ protected void consumeConstructorHeaderNameWithTypeParameters() {
 
 	/* recovering - might be an empty message send */
 	if (this.currentElement != null){
-		if (this.lastIgnoredToken == TokenNamenew){ // was an allocation expression
+		if (this.lastIgnoredToken == TokenNameNew){ // was an allocation expression
 			this.lastCheckPoint = this.scanner.startPosition; // force to restart at this exact position				
 			this.restartRecovery = true;
 			return;
@@ -3843,7 +3843,7 @@ protected void consumeMethodHeaderRightParen() {
 		if (md.isConstructor()){
 			if ((length != 0)
 				|| (this.currentToken == TokenNameLBRACE) 
-				|| (this.currentToken == TokenNamethrows)){
+				|| (this.currentToken == TokenNameThrows)){
 				this.currentElement = this.currentElement.add(md, 0);
 				this.lastIgnoredToken = -1;
 			}	
@@ -6444,17 +6444,17 @@ protected void consumeToken(int type) {
 	checkNonExternalizedStringLiteral();
 //	// clear the commentPtr of the scanner in case we read something different from a modifier
 //	switch(type) {
-//		case TokenNameabstract :
-//		case TokenNamestrictfp :
-//		case TokenNamefinal :
-//		case TokenNamenative :
-//		case TokenNameprivate :
-//		case TokenNameprotected :
-//		case TokenNamepublic :
-//		case TokenNametransient :
-//		case TokenNamevolatile :
-//		case TokenNamestatic :
-//		case TokenNamesynchronized :
+//		case TokenNameAbstract :
+//		case TokenNameStrictfp :
+//		case TokenNameFinal :
+//		case TokenNameNative :
+//		case TokenNamePrivate :
+//		case TokenNameProtected :
+//		case TokenNamePublic :
+//		case TokenNameTransient :
+//		case TokenNameVolatile :
+//		case TokenNameStatic :
+//		case TokenNameSynchronized :
 //			break;
 //		default:
 //			this.scanner.commentPtr = -1;
@@ -6474,59 +6474,59 @@ protected void consumeToken(int type) {
 				problemReporter().useEnumAsAnIdentifier((int) (positions >>> 32), (int) positions);
 			}
 			break;
-		case TokenNameinterface :
+		case TokenNameInterface :
 			adjustInterfaceModifiers();
 			//'class' is pushing two int (positions) on the stack ==> 'interface' needs to do it too....
 			pushOnIntStack(this.scanner.currentPosition - 1);			
 			pushOnIntStack(this.scanner.startPosition);
 			break;
-		case TokenNameabstract :
+		case TokenNameAbstract :
 			checkAndSetModifiers(AccAbstract);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamestrictfp :
+		case TokenNameStrictfp :
 			checkAndSetModifiers(AccStrictfp);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamefinal :
+		case TokenNameFinal :
 			checkAndSetModifiers(AccFinal);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamenative :
+		case TokenNameNative :
 			checkAndSetModifiers(AccNative);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNameprivate :
+		case TokenNamePrivate :
 			checkAndSetModifiers(AccPrivate);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNameprotected :
+		case TokenNameProtected :
 			checkAndSetModifiers(AccProtected);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamepublic :
+		case TokenNamePublic :
 			checkAndSetModifiers(AccPublic);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNametransient :
+		case TokenNameTransient :
 			checkAndSetModifiers(AccTransient);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamevolatile :
+		case TokenNameVolatile :
 			checkAndSetModifiers(AccVolatile);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamestatic :
+		case TokenNameStatic :
 			checkAndSetModifiers(AccStatic);
 			pushOnExpressionStackLengthStack(0);
 			break;
-		case TokenNamesynchronized :
+		case TokenNameSynchronized :
 			this.synchronizedBlockSourceStart = this.scanner.startPosition;	
 			checkAndSetModifiers(AccSynchronized);
 			pushOnExpressionStackLengthStack(0);
 			break;
 			//==============================
-		case TokenNamevoid :
+		case TokenNameVoid :
 			pushIdentifier(-T_void);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);
@@ -6534,42 +6534,42 @@ protected void consumeToken(int type) {
 			//push a default dimension while void is not part of the primitive
 			//declaration baseType and so takes the place of a type without getting into
 			//regular type parsing that generates a dimension on this.intStack
-		case TokenNameboolean :
+		case TokenNameBoolean :
 			pushIdentifier(-T_boolean);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);		
 			break;
-		case TokenNamebyte :
+		case TokenNameByte :
 			pushIdentifier(-T_byte);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
 			break;
-		case TokenNamechar :
+		case TokenNameChar :
 			pushIdentifier(-T_char);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
 			break;
-		case TokenNamedouble :
+		case TokenNameDouble :
 			pushIdentifier(-T_double);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
 			break;
-		case TokenNamefloat :
+		case TokenNameFloat :
 			pushIdentifier(-T_float);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
 			break;
-		case TokenNameint :
+		case TokenNameInt :
 			pushIdentifier(-T_int);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
 			break;
-		case TokenNamelong :
+		case TokenNameLong :
 			pushIdentifier(-T_long);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
 			break;
-		case TokenNameshort :
+		case TokenNameShort :
 			pushIdentifier(-T_short);
 			pushOnIntStack(this.scanner.currentPosition - 1);				
 			pushOnIntStack(this.scanner.startPosition);					
@@ -6617,54 +6617,54 @@ protected void consumeToken(int type) {
 					this.scanner.currentPosition - 1); 
 			pushOnExpressionStack(stringLiteral); 
 			break;
-		case TokenNamefalse :
+		case TokenNameFalse :
 			pushOnExpressionStack(
 				new FalseLiteral(this.scanner.startPosition, this.scanner.currentPosition - 1)); 
 			break;
-		case TokenNametrue :
+		case TokenNameTrue :
 			pushOnExpressionStack(
 				new TrueLiteral(this.scanner.startPosition, this.scanner.currentPosition - 1)); 
 			break;
-		case TokenNamenull :
+		case TokenNameNull :
 			pushOnExpressionStack(
 				new NullLiteral(this.scanner.startPosition, this.scanner.currentPosition - 1)); 
 			break;
 			//============================
-		case TokenNamesuper :
-		case TokenNamethis :
+		case TokenNameSuper :
+		case TokenNameThis :
 			this.endPosition = this.scanner.currentPosition - 1;
 			pushOnIntStack(this.scanner.startPosition);
 			break;
-		case TokenNameassert :
-		case TokenNameimport :
-		case TokenNamepackage :
-		case TokenNamethrow :
-		case TokenNamedo :
-		case TokenNameif :
-		case TokenNamefor :
-		case TokenNameswitch :
-		case TokenNametry :
-		case TokenNamewhile :
-		case TokenNamebreak :
-		case TokenNamecontinue :
-		case TokenNamereturn :
-		case TokenNamecase :
+		case TokenNameAssert :
+		case TokenNameImport :
+		case TokenNamePackage :
+		case TokenNameThrow :
+		case TokenNameDo :
+		case TokenNameIf :
+		case TokenNameFor :
+		case TokenNameSwitch :
+		case TokenNameTry :
+		case TokenNameWhile :
+		case TokenNameBreak :
+		case TokenNameContinue :
+		case TokenNameReturn :
+		case TokenNameCase :
 			pushOnIntStack(this.scanner.startPosition);
 			break;
-		case TokenNamenew :
+		case TokenNameNew :
 			// https://bugs.eclipse.org/bugs/show_bug.cgi?id=40954
 			resetModifiers();
 			pushOnIntStack(this.scanner.startPosition);
 			break;
-		case TokenNameclass :
+		case TokenNameClass :
 			pushOnIntStack(this.scanner.currentPosition - 1);
 			pushOnIntStack(this.scanner.startPosition);
 			break;
-		case TokenNameenum :
+		case TokenNameEnum :
 			pushOnIntStack(this.scanner.currentPosition - 1);
 			pushOnIntStack(this.scanner.startPosition);
 			break;
-		case TokenNamedefault :
+		case TokenNameDefault :
 			pushOnIntStack(this.scanner.startPosition);
 			pushOnIntStack(this.scanner.currentPosition - 1);
 			break;
@@ -6713,14 +6713,14 @@ protected void consumeToken(int type) {
 			//  case TokenNameDOT :
 			//  case TokenNameERROR :
 			//  case TokenNameEOF  :
-			//  case TokenNamecase  :
-			//  case TokenNamecatch  :
-			//  case TokenNameelse  :
-			//  case TokenNameextends  :
-			//  case TokenNamefinally  :
-			//  case TokenNameimplements  :
-			//  case TokenNamethrows  :
-			//  case TokenNameinstanceof  :
+			//  case TokenNameCase  :
+			//  case TokenNameCatch  :
+			//  case TokenNameElse  :
+			//  case TokenNameExtends  :
+			//  case TokenNameFinally  :
+			//  case TokenNameImplements  :
+			//  case TokenNameThrows  :
+			//  case TokenNameInstanceof  :
 			//  case TokenNameEQUAL_EQUAL  :
 			//  case TokenNameLESS_EQUAL  :
 			//  case TokenNameGREATER_EQUAL  :

@@ -602,9 +602,9 @@ public final class SelectionEngine extends Engine implements ISearchRequestor {
 					return false;
 				}
 				switch (token) {
-					case TerminalTokens.TokenNamethis:
-					case TerminalTokens.TokenNamesuper:
-					case TerminalTokens.TokenNamenew:
+					case TerminalTokens.TokenNameThis:
+					case TerminalTokens.TokenNameSuper:
+					case TerminalTokens.TokenNameNew:
 					case TerminalTokens.TokenNameIdentifier:
 						if (scanner.startPosition <= selectionStart && selectionStart <= scanner.currentPosition) {
 							if (scanner.currentPosition == scanner.eofPosition) {
@@ -654,9 +654,9 @@ public final class SelectionEngine extends Engine implements ISearchRequestor {
 					return false;
 				}
 				switch (token) {
-					case TerminalTokens.TokenNamethis :
-					case TerminalTokens.TokenNamesuper :
-					case TerminalTokens.TokenNamenew :
+					case TerminalTokens.TokenNameThis :
+					case TerminalTokens.TokenNameSuper :
+					case TerminalTokens.TokenNameNew :
 					case TerminalTokens.TokenNameIdentifier :
 						if (!expectingIdentifier)
 							return false;
@@ -742,8 +742,8 @@ public final class SelectionEngine extends Engine implements ISearchRequestor {
 					depth-=3;
 					buffer.append(scanner.getCurrentTokenSource());
 					break;
-				case TerminalTokens.TokenNameextends :
-				case TerminalTokens.TokenNamesuper :
+				case TerminalTokens.TokenNameExtends :
+				case TerminalTokens.TokenNameSuper :
 					buffer.append(' ');
 					buffer.append(scanner.getCurrentTokenSource());
 					buffer.append(' ');

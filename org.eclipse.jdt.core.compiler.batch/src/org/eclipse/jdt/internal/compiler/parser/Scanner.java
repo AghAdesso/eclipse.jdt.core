@@ -2996,27 +2996,27 @@ void updateScanContext(int token) {
 		case TokenNameRPAREN:
 			this.scanContext = ScanContext.EXPECTING_KEYWORD;
 			break;
-		case TokenNameopen:
+		case TokenNameOpen:
 			this.scanContext = ScanContext.EXPECTING_KEYWORD;
 			break;
-		case TokenNamerequires:
+		case TokenNameRequires:
 			this.scanContext = ScanContext.AFTER_REQUIRES;
 			break;
-		case TokenNamemodule:
-		case TokenNameexports:
-		case TokenNameopens:
-		case TokenNameuses:
-		case TokenNameprovides:
-		case TokenNameto:
-		case TokenNamewith:
-		case TokenNametransitive:
+		case TokenNameModule:
+		case TokenNameExports:
+		case TokenNameOpens:
+		case TokenNameUses:
+		case TokenNameProvides:
+		case TokenNameTo:
+		case TokenNameWith:
+		case TokenNameTransitive:
 		case TokenNameDOT:
 		case TokenNameAT:
 		case TokenNameAT308:
 		case TokenNameCOMMA:
 			this.scanContext = ScanContext.EXPECTING_IDENTIFIER;
 			break;
-		case TokenNameimport:
+		case TokenNameImport:
 			this.scanContext = ScanContext.AFTER_IMPORT;
 			break;
 		case TokenNameIdentifier:
@@ -3296,12 +3296,12 @@ final void addTokenToLookBack(int newToken) {
 		case TokenNameCOMMENT_JAVADOC:
 			return;
 	}
-	if (newToken == TokenNamecase)
+	if (newToken == TokenNameCase)
 		this.scanningSwitchLabel = true;
 	else if (newToken == TokenNameCaseArrow)
 		this.scanningSwitchLabel = false;
 	else if (this.scanningSwitchLabel && this.lookBack[1] == TokenNameCOLON) {
-		if (this.activeParser == null || this.activeParser.automatonWillShift(TokenNamecase))
+		if (this.activeParser == null || this.activeParser.automatonWillShift(TokenNameCase))
 			this.scanningSwitchLabel = false;
 	}
 	this.lookBack[0] = this.lookBack[1];
@@ -3538,7 +3538,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'c')
 						&& (data[++index] == 't')) {
-							return TokenNameabstract;
+							return TokenNameAbstract;
 						} else {
 							return TokenNameIdentifier;
 						}
@@ -3550,7 +3550,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 't')) {
 							if (this.sourceLevel >= ClassFileConstants.JDK1_4) {
 								this.containsAssertKeyword = true;
-								return TokenNameassert;
+								return TokenNameAssert;
 							} else {
 								this.useAssertAsAnIndentifier = true;
 								return TokenNameIdentifier;
@@ -3565,7 +3565,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 4 :
 					if ((data[++index] == 'y') && (data[++index] == 't') && (data[++index] == 'e'))
-						return TokenNamebyte;
+						return TokenNameByte;
 					else
 						return TokenNameIdentifier;
 				case 5 :
@@ -3573,7 +3573,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'k'))
-						return TokenNamebreak;
+						return TokenNameBreak;
 					else
 						return TokenNameIdentifier;
 				case 7 :
@@ -3583,7 +3583,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'n'))
-						return TokenNameboolean;
+						return TokenNameBoolean;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -3595,18 +3595,18 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 				case 4 :
 					if (data[++index] == 'a')
 						if ((data[++index] == 's') && (data[++index] == 'e'))
-							return TokenNamecase;
+							return TokenNameCase;
 						else
 							return TokenNameIdentifier;
 					else
 						if ((data[index] == 'h') && (data[++index] == 'a') && (data[++index] == 'r'))
-							return TokenNamechar;
+							return TokenNameChar;
 						else
 							return TokenNameIdentifier;
 				case 5 :
 					if (data[++index] == 'a')
 						if ((data[++index] == 't') && (data[++index] == 'c') && (data[++index] == 'h'))
-							return TokenNamecatch;
+							return TokenNameCatch;
 						else
 							return TokenNameIdentifier;
 					else
@@ -3614,14 +3614,14 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							if ((data[++index] == 'a')
 								&& (data[++index] == 's')
 								&& (data[++index] == 's'))
-								return TokenNameclass;
+								return TokenNameClass;
 							else
 								return TokenNameIdentifier;
 						else if ((data[index] == 'o')
 							&& (data[++index] == 'n')
 							&& (data[++index] == 's')
 							&& (data[++index] == 't'))
-							return TokenNameconst; //const is not used in java ???????
+							return TokenNameConst; //const is not used in java ???????
 						else
 							return TokenNameIdentifier;
 				case 8 :
@@ -3632,7 +3632,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'n')
 						&& (data[++index] == 'u')
 						&& (data[++index] == 'e'))
-						return TokenNamecontinue;
+						return TokenNameContinue;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -3643,7 +3643,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 2 :
 					if ((data[++index] == 'o'))
-						return TokenNamedo;
+						return TokenNameDo;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -3652,7 +3652,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'b')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e'))
-						return TokenNamedouble;
+						return TokenNameDouble;
 					else
 						return TokenNameIdentifier;
 				case 7 :
@@ -3662,7 +3662,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'u')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 't'))
-						return TokenNamedefault;
+						return TokenNameDefault;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -3673,7 +3673,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 				case 4 :
 					if (data[++index] == 'l') {
 						if ((data[++index] == 's') && (data[++index] == 'e')) {
-							return TokenNameelse;
+							return TokenNameElse;
 						} else {
 							return TokenNameIdentifier;
 						}
@@ -3681,7 +3681,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'u')
 							&& (data[++index] == 'm')) {
 						if (this.sourceLevel >= ClassFileConstants.JDK1_5) {
-							return TokenNameenum;
+							return TokenNameEnum;
 						} else {
 							this.useEnumAsAnIndentifier = true;
 							return TokenNameIdentifier;
@@ -3692,11 +3692,11 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						if ((data[++index] == 'x')) {
 							if ((data[++index] == 't') && (data[++index] == 'e') && (data[++index] == 'n')
 									&& (data[++index] == 'd') && (data[++index] == 's')) {
-								return TokenNameextends;
+								return TokenNameExtends;
 							} else if (areRestrictedModuleKeywordsActive()
 									&& (data[index] == 'p') && (data[++index] == 'o') && (data[++index] == 'r')
 									&& (data[++index] == 't') && (data[++index] == 's')) {
-								return TokenNameexports;
+								return TokenNameExports;
 							} else
 								return TokenNameIdentifier;
 						} else
@@ -3709,7 +3709,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 3 :
 					if ((data[++index] == 'o') && (data[++index] == 'r'))
-						return TokenNamefor;
+						return TokenNameFor;
 					else
 						return TokenNameIdentifier;
 				case 5 :
@@ -3717,7 +3717,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						if ((data[++index] == 'n')
 							&& (data[++index] == 'a')
 							&& (data[++index] == 'l')) {
-							return TokenNamefinal;
+							return TokenNameFinal;
 						} else
 							return TokenNameIdentifier;
 					else
@@ -3725,7 +3725,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							if ((data[++index] == 'o')
 								&& (data[++index] == 'a')
 								&& (data[++index] == 't'))
-								return TokenNamefloat;
+								return TokenNameFloat;
 							else
 								return TokenNameIdentifier;
 						else
@@ -3733,7 +3733,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 								&& (data[++index] == 'l')
 								&& (data[++index] == 's')
 								&& (data[++index] == 'e'))
-								return TokenNamefalse;
+								return TokenNameFalse;
 							else
 								return TokenNameIdentifier;
 				case 7 :
@@ -3743,7 +3743,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'y'))
-						return TokenNamefinally;
+						return TokenNameFinally;
 					else
 						return TokenNameIdentifier;
 
@@ -3755,7 +3755,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 				if ((data[++index] == 'o')
 					&& (data[++index] == 't')
 					&& (data[++index] == 'o')) {
-					return TokenNamegoto;
+					return TokenNameGoto;
 				}
 			} //no goto in java are allowed, so why java removes this keyword ???
 			return TokenNameIdentifier;
@@ -3764,12 +3764,12 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 2 :
 					if (data[++index] == 'f')
-						return TokenNameif;
+						return TokenNameIf;
 					else
 						return TokenNameIdentifier;
 				case 3 :
 					if ((data[++index] == 'n') && (data[++index] == 't'))
-						return TokenNameint;
+						return TokenNameInt;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -3781,7 +3781,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						// initialize scanContext, because we need disambiguation when the next token is 'module':
 						if (this.scanContext == null || this.scanContext == ScanContext.INACTIVE)
 							this.scanContext = ScanContext.EXPECTING_IDENTIFIER;
-						return TokenNameimport;
+						return TokenNameImport;
 					} else {
 						return TokenNameIdentifier;
 					}
@@ -3794,7 +3794,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'a')
 						&& (data[++index] == 'c')
 						&& (data[++index] == 'e'))
-						return TokenNameinterface;
+						return TokenNameInterface;
 					else
 						return TokenNameIdentifier;
 				case 10 :
@@ -3807,7 +3807,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'n')
 							&& (data[++index] == 't')
 							&& (data[++index] == 's'))
-							return TokenNameimplements;
+							return TokenNameImplements;
 						else
 							return TokenNameIdentifier;
 					else
@@ -3820,7 +3820,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'e')
 							&& (data[++index] == 'o')
 							&& (data[++index] == 'f'))
-							return TokenNameinstanceof;
+							return TokenNameInstanceof;
 						else
 							return TokenNameIdentifier;
 
@@ -3833,7 +3833,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 				if ((data[++index] == 'o')
 					&& (data[++index] == 'n')
 					&& (data[++index] == 'g')) {
-					return TokenNamelong;
+					return TokenNameLong;
 				}
 			}
 			return TokenNameIdentifier;
@@ -3847,7 +3847,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'u')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e'))
-						return TokenNamemodule;
+						return TokenNameModule;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -3858,7 +3858,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 3 :
 					if ((data[++index] == 'e') && (data[++index] == 'w'))
-						return TokenNamenew;
+						return TokenNameNew;
 					else if (data == this.source && (data.length >= index + 10) // "non-sealed".length();  not handling unicode as of now in non-sealed
 							&& (data[index] == 'o')
 							&& (data[++index] == 'n')
@@ -3871,9 +3871,9 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'd')
 							&& !ScannerHelper.isJavaIdentifierPart(data[++index])) {
 								this.currentPosition += 7;
-								int t = disambiguatesRestrictedIdentifierWithLookAhead(TokenNamenon_sealed);
-								if (t == TokenNamenon_sealed) {
-									return TokenNamenon_sealed;
+								int t = disambiguatesRestrictedIdentifierWithLookAhead(TokenNameNonSealed);
+								if (t == TokenNameNonSealed) {
+									return TokenNameNonSealed;
 								} else {
 									this.currentPosition -= 7;
 									return TokenNameIdentifier;
@@ -3883,7 +3883,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						return TokenNameIdentifier;
 				case 4 :
 					if ((data[++index] == 'u') && (data[++index] == 'l') && (data[++index] == 'l'))
-						return TokenNamenull;
+						return TokenNameNull;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -3892,7 +3892,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'v')
 						&& (data[++index] == 'e')) {
-						return TokenNamenative;
+						return TokenNameNative;
 					} else
 						return TokenNameIdentifier;
 				default :
@@ -3903,7 +3903,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 4 :
 					if (areRestrictedModuleKeywordsActive() && (data[++index] == 'p') && (data[++index] == 'e') && (data[++index] == 'n'))
-						return TokenNameopen;
+						return TokenNameOpen;
 					else
 						return TokenNameIdentifier;
 				case 5 :
@@ -3912,7 +3912,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'e')
 							&& (data[++index] == 'n')
 							&& (data[++index] == 's'))
-						return TokenNameopens;
+						return TokenNameOpens;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -3926,7 +3926,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'c')) {
-						return TokenNamepublic;
+						return TokenNamePublic;
 					} else
 						return TokenNameIdentifier;
 				case 7 :
@@ -3936,7 +3936,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'a')
 							&& (data[++index] == 'g')
 							&& (data[++index] == 'e'))
-							return TokenNamepackage;
+							return TokenNamePackage;
 						else
 							return TokenNameIdentifier;
 					} else {
@@ -3946,7 +3946,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'a')
 							&& (data[++index] == 't')
 							&& (data[++index] == 'e')) {
-							return TokenNameprivate;
+							return TokenNamePrivate;
 						} else if ((data[index] == 'e')
 								&& (data[++index] == 'r')
 								&& (data[++index] == 'm')
@@ -3966,7 +3966,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'd')
 						&& (data[++index] == 'e')
 						&& (data[++index] == 's')) {
-						return TokenNameprovides;
+						return TokenNameProvides;
 					} else
 						return TokenNameIdentifier;
 				case 9 :
@@ -3978,7 +3978,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 't')
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'd')) {
-						return TokenNameprotected;
+						return TokenNameProtected;
 					} else
 						return TokenNameIdentifier;
 
@@ -3994,7 +3994,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'u')
 							&& (data[++index] == 'r')
 							&& (data[++index] == 'n'))
-								return TokenNamereturn;
+								return TokenNameReturn;
 						else if ((data[index] == 'c')
 							&& (data[++index] == 'o')
 							&& (data[++index] == 'r')
@@ -4011,7 +4011,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'r')
 						&& (data[++index] == 'e')
 						&& (data[++index] == 's')) {
-						return TokenNamerequires;
+						return TokenNameRequires;
 					} else
 						return TokenNameIdentifier;
 			}
@@ -4022,7 +4022,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 				case 5 :
 					if (data[++index] == 'h')
 						if ((data[++index] == 'o') && (data[++index] == 'r') && (data[++index] == 't'))
-							return TokenNameshort;
+							return TokenNameShort;
 						else
 							return TokenNameIdentifier;
 					else
@@ -4030,7 +4030,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 'p')
 							&& (data[++index] == 'e')
 							&& (data[++index] == 'r'))
-							return TokenNamesuper;
+							return TokenNameSuper;
 						else
 							return TokenNameIdentifier;
 
@@ -4040,7 +4040,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 't')
 							&& (data[++index] == 'i')
 							&& (data[++index] == 'c')) {
-							return TokenNamestatic;
+							return TokenNameStatic;
 						} else
 							return TokenNameIdentifier;
 					else
@@ -4049,7 +4049,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 							&& (data[++index] == 't')
 							&& (data[++index] == 'c')
 							&& (data[++index] == 'h')) {
-							return TokenNameswitch;
+							return TokenNameSwitch;
 						} else if ((data[index] == 'e')
 							&& (data[++index] == 'a')
 							&& (data[++index] == 'l')
@@ -4066,7 +4066,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 't')
 						&& (data[++index] == 'f')
 						&& (data[++index] == 'p'))
-						return TokenNamestrictfp;
+						return TokenNameStrictfp;
 					else
 						return TokenNameIdentifier;
 				case 12 :
@@ -4081,7 +4081,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'z')
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'd')) {
-						return TokenNamesynchronized;
+						return TokenNameSynchronized;
 					} else
 						return TokenNameIdentifier;
 				default :
@@ -4092,23 +4092,23 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 2:
 					if (areRestrictedModuleKeywordsActive() && data[++index] == 'o')
-						return TokenNameto;
+						return TokenNameTo;
 					else
 						return TokenNameIdentifier;
 				case 3 :
 					if ((data[++index] == 'r') && (data[++index] == 'y'))
-						return TokenNametry;
+						return TokenNameTry;
 					else
 						return TokenNameIdentifier;
 				case 4 :
 					if (data[++index] == 'h')
 						if ((data[++index] == 'i') && (data[++index] == 's'))
-							return TokenNamethis;
+							return TokenNameThis;
 						else
 							return TokenNameIdentifier;
 					else
 						if ((data[index] == 'r') && (data[++index] == 'u') && (data[++index] == 'e'))
-							return TokenNametrue;
+							return TokenNameTrue;
 						else
 							return TokenNameIdentifier;
 				case 5 :
@@ -4116,7 +4116,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'r')
 						&& (data[++index] == 'o')
 						&& (data[++index] == 'w'))
-						return TokenNamethrow;
+						return TokenNameThrow;
 					else
 						return TokenNameIdentifier;
 				case 6 :
@@ -4125,7 +4125,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'o')
 						&& (data[++index] == 'w')
 						&& (data[++index] == 's'))
-						return TokenNamethrows;
+						return TokenNameThrows;
 					else
 						return TokenNameIdentifier;
 				case 9 :
@@ -4137,7 +4137,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'e')
 						&& (data[++index] == 'n')
 						&& (data[++index] == 't')) {
-						return TokenNametransient;
+						return TokenNameTransient;
 					} else
 						return TokenNameIdentifier;
 				case 10:
@@ -4150,7 +4150,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'v')
 						&& (data[++index] == 'e')) {
-						return TokenNametransitive;
+						return TokenNameTransitive;
 					} else
 						return TokenNameIdentifier;
 				default :
@@ -4161,7 +4161,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 				case 4 :
 					if (areRestrictedModuleKeywordsActive()
 							&& (data[++index] == 's') && (data[++index] == 'e') && (data[++index] == 's'))
-						return TokenNameuses;
+						return TokenNameUses;
 					else
 						return TokenNameIdentifier;
 				default :
@@ -4171,7 +4171,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 			switch (length) {
 				case 4 :
 					if ((data[++index] == 'o') && (data[++index] == 'i') && (data[++index] == 'd'))
-						return TokenNamevoid;
+						return TokenNameVoid;
 					else
 						return TokenNameIdentifier;
 				case 8 :
@@ -4182,7 +4182,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e')) {
-						return TokenNamevolatile;
+						return TokenNameVolatile;
 					} else
 						return TokenNameIdentifier;
 
@@ -4197,7 +4197,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'i')
 						&& (data[++index] == 't')
 						&& (data[++index] == 'h'))
-						return TokenNamewith;
+						return TokenNameWith;
 					else if ((data[++index] == 'h')
 							&& (data[++index] == 'e')
 							&& (data[++index] == 'n'))
@@ -4209,7 +4209,7 @@ private int internalScanIdentifierOrKeyword(int index, int length, char[] data) 
 						&& (data[++index] == 'i')
 						&& (data[++index] == 'l')
 						&& (data[++index] == 'e'))
-						return TokenNamewhile;
+						return TokenNameWhile;
 					else
 						return TokenNameIdentifier;
 					//case 6:if ( (data[++index] =='i') && (data[++index]=='d') && (data[++index]=='e') && (data[++index]=='f')&& (data[++index]=='p'))
@@ -4642,113 +4642,113 @@ public String toStringAction(int act) {
 			return "yield"; //$NON-NLS-1$
 		case TokenNameRestrictedIdentifierrecord :
 			return "record"; //$NON-NLS-1$
-		case TokenNameabstract :
+		case TokenNameAbstract :
 			return "abstract"; //$NON-NLS-1$
-		case TokenNameboolean :
+		case TokenNameBoolean :
 			return "boolean"; //$NON-NLS-1$
-		case TokenNamebreak :
+		case TokenNameBreak :
 			return "break"; //$NON-NLS-1$
-		case TokenNamebyte :
+		case TokenNameByte :
 			return "byte"; //$NON-NLS-1$
-		case TokenNamecase :
+		case TokenNameCase :
 			return "case"; //$NON-NLS-1$
-		case TokenNamecatch :
+		case TokenNameCatch :
 			return "catch"; //$NON-NLS-1$
-		case TokenNamechar :
+		case TokenNameChar :
 			return "char"; //$NON-NLS-1$
-		case TokenNameclass :
+		case TokenNameClass :
 			return "class"; //$NON-NLS-1$
-		case TokenNamecontinue :
+		case TokenNameContinue :
 			return "continue"; //$NON-NLS-1$
-		case TokenNamedefault :
+		case TokenNameDefault :
 			return "default"; //$NON-NLS-1$
-		case TokenNamedo :
+		case TokenNameDo :
 			return "do"; //$NON-NLS-1$
-		case TokenNamedouble :
+		case TokenNameDouble :
 			return "double"; //$NON-NLS-1$
-		case TokenNameelse :
+		case TokenNameElse :
 			return "else"; //$NON-NLS-1$
-		case TokenNameextends :
+		case TokenNameExtends :
 			return "extends"; //$NON-NLS-1$
-		case TokenNamefalse :
+		case TokenNameFalse :
 			return "false"; //$NON-NLS-1$
-		case TokenNamefinal :
+		case TokenNameFinal :
 			return "final"; //$NON-NLS-1$
-		case TokenNamefinally :
+		case TokenNameFinally :
 			return "finally"; //$NON-NLS-1$
-		case TokenNamefloat :
+		case TokenNameFloat :
 			return "float"; //$NON-NLS-1$
-		case TokenNamefor :
+		case TokenNameFor :
 			return "for"; //$NON-NLS-1$
-		case TokenNameif :
+		case TokenNameIf :
 			return "if"; //$NON-NLS-1$
-		case TokenNameimplements :
+		case TokenNameImplements :
 			return "implements"; //$NON-NLS-1$
-		case TokenNameimport :
+		case TokenNameImport :
 			return "import"; //$NON-NLS-1$
-		case TokenNameinstanceof :
+		case TokenNameInstanceof :
 			return "instanceof"; //$NON-NLS-1$
-		case TokenNameint :
+		case TokenNameInt :
 			return "int"; //$NON-NLS-1$
-		case TokenNameinterface :
+		case TokenNameInterface :
 			return "interface"; //$NON-NLS-1$
-		case TokenNamelong :
+		case TokenNameLong :
 			return "long"; //$NON-NLS-1$
-		case TokenNamenative :
+		case TokenNameNative :
 			return "native"; //$NON-NLS-1$
-		case TokenNamenew :
+		case TokenNameNew :
 			return "new"; //$NON-NLS-1$
-		case TokenNamenon_sealed:
+		case TokenNameNonSealed:
 			return "non-sealed"; //$NON-NLS-1$
-		case TokenNamenull :
+		case TokenNameNull :
 			return "null"; //$NON-NLS-1$
-		case TokenNamepackage :
+		case TokenNamePackage :
 			return "package"; //$NON-NLS-1$
 		case TokenNameRestrictedIdentifierpermits:
 			return "permits"; //$NON-NLS-1$
-		case TokenNameprivate :
+		case TokenNamePrivate :
 			return "private"; //$NON-NLS-1$
-		case TokenNameprotected :
+		case TokenNameProtected :
 			return "protected"; //$NON-NLS-1$
-		case TokenNamepublic :
+		case TokenNamePublic :
 			return "public"; //$NON-NLS-1$
-		case TokenNamereturn :
+		case TokenNameReturn :
 			return "return"; //$NON-NLS-1$
 		case TokenNameRestrictedIdentifiersealed:
 			return "sealed"; //$NON-NLS-1$
-		case TokenNameshort :
+		case TokenNameShort :
 			return "short"; //$NON-NLS-1$
-		case TokenNamestatic :
+		case TokenNameStatic :
 			return "static"; //$NON-NLS-1$
-		case TokenNamesuper :
+		case TokenNameSuper :
 			return "super"; //$NON-NLS-1$
-		case TokenNameswitch :
+		case TokenNameSwitch :
 			return "switch"; //$NON-NLS-1$
-		case TokenNamesynchronized :
+		case TokenNameSynchronized :
 			return "synchronized"; //$NON-NLS-1$
-		case TokenNamethis :
+		case TokenNameThis :
 			return "this"; //$NON-NLS-1$
-		case TokenNamethrow :
+		case TokenNameThrow :
 			return "throw"; //$NON-NLS-1$
-		case TokenNamethrows :
+		case TokenNameThrows :
 			return "throws"; //$NON-NLS-1$
-		case TokenNametransient :
+		case TokenNameTransient :
 			return "transient"; //$NON-NLS-1$
-		case TokenNametrue :
+		case TokenNameTrue :
 			return "true"; //$NON-NLS-1$
-		case TokenNametry :
+		case TokenNameTry :
 			return "try"; //$NON-NLS-1$
-		case TokenNamevoid :
+		case TokenNameVoid :
 			return "void"; //$NON-NLS-1$
-		case TokenNamevolatile :
+		case TokenNameVolatile :
 			return "volatile"; //$NON-NLS-1$
-		case TokenNamewhile :
+		case TokenNameWhile :
 			return "while"; //$NON-NLS-1$
-		case TokenNamemodule :
+		case TokenNameModule :
 			return "module"; //$NON-NLS-1$
-		case TokenNamerequires :
+		case TokenNameRequires :
 			return "requires"; //$NON-NLS-1$
-		case TokenNameexports :
+		case TokenNameExports :
 			return "exports"; //$NON-NLS-1$
 
 		case TokenNameIntegerLiteral :
@@ -4918,63 +4918,63 @@ public static boolean isLiteral(int token) {
 
 public static boolean isKeyword(int token) {
 	switch(token) {
-		case TerminalTokens.TokenNameabstract:
-		case TerminalTokens.TokenNameassert:
-		case TerminalTokens.TokenNamebyte:
-		case TerminalTokens.TokenNamebreak:
-		case TerminalTokens.TokenNameboolean:
-		case TerminalTokens.TokenNamecase:
-		case TerminalTokens.TokenNamechar:
-		case TerminalTokens.TokenNamecatch:
-		case TerminalTokens.TokenNameclass:
-		case TerminalTokens.TokenNamecontinue:
-		case TerminalTokens.TokenNamedo:
-		case TerminalTokens.TokenNamedouble:
-		case TerminalTokens.TokenNamedefault:
-		case TerminalTokens.TokenNameelse:
-		case TerminalTokens.TokenNameextends:
-		case TerminalTokens.TokenNamefor:
-		case TerminalTokens.TokenNamefinal:
-		case TerminalTokens.TokenNamefloat:
-		case TerminalTokens.TokenNamefalse:
-		case TerminalTokens.TokenNamefinally:
-		case TerminalTokens.TokenNameif:
-		case TerminalTokens.TokenNameint:
-		case TerminalTokens.TokenNameimport:
-		case TerminalTokens.TokenNameinterface:
-		case TerminalTokens.TokenNameimplements:
-		case TerminalTokens.TokenNameinstanceof:
-		case TerminalTokens.TokenNamelong:
-		case TerminalTokens.TokenNamenew:
-		case TerminalTokens.TokenNamenull:
-		case TerminalTokens.TokenNamenative:
-		case TerminalTokens.TokenNamepublic:
-		case TerminalTokens.TokenNamepackage:
-		case TerminalTokens.TokenNameprivate:
-		case TerminalTokens.TokenNameprotected:
-		case TerminalTokens.TokenNamereturn:
-		case TerminalTokens.TokenNameshort:
-		case TerminalTokens.TokenNamesuper:
-		case TerminalTokens.TokenNamestatic:
-		case TerminalTokens.TokenNameswitch:
-		case TerminalTokens.TokenNamestrictfp:
-		case TerminalTokens.TokenNamesynchronized:
-		case TerminalTokens.TokenNametry:
-		case TerminalTokens.TokenNamethis:
-		case TerminalTokens.TokenNametrue:
-		case TerminalTokens.TokenNamethrow:
-		case TerminalTokens.TokenNamethrows:
-		case TerminalTokens.TokenNametransient:
-		case TerminalTokens.TokenNamevoid:
-		case TerminalTokens.TokenNamevolatile:
-		case TerminalTokens.TokenNamewhile:
+		case TerminalTokens.TokenNameAbstract:
+		case TerminalTokens.TokenNameAssert:
+		case TerminalTokens.TokenNameByte:
+		case TerminalTokens.TokenNameBreak:
+		case TerminalTokens.TokenNameBoolean:
+		case TerminalTokens.TokenNameCase:
+		case TerminalTokens.TokenNameChar:
+		case TerminalTokens.TokenNameCatch:
+		case TerminalTokens.TokenNameClass:
+		case TerminalTokens.TokenNameContinue:
+		case TerminalTokens.TokenNameDo:
+		case TerminalTokens.TokenNameDouble:
+		case TerminalTokens.TokenNameDefault:
+		case TerminalTokens.TokenNameElse:
+		case TerminalTokens.TokenNameExtends:
+		case TerminalTokens.TokenNameFor:
+		case TerminalTokens.TokenNameFinal:
+		case TerminalTokens.TokenNameFloat:
+		case TerminalTokens.TokenNameFalse:
+		case TerminalTokens.TokenNameFinally:
+		case TerminalTokens.TokenNameIf:
+		case TerminalTokens.TokenNameInt:
+		case TerminalTokens.TokenNameImport:
+		case TerminalTokens.TokenNameInterface:
+		case TerminalTokens.TokenNameImplements:
+		case TerminalTokens.TokenNameInstanceof:
+		case TerminalTokens.TokenNameLong:
+		case TerminalTokens.TokenNameNew:
+		case TerminalTokens.TokenNameNull:
+		case TerminalTokens.TokenNameNative:
+		case TerminalTokens.TokenNamePublic:
+		case TerminalTokens.TokenNamePackage:
+		case TerminalTokens.TokenNamePrivate:
+		case TerminalTokens.TokenNameProtected:
+		case TerminalTokens.TokenNameReturn:
+		case TerminalTokens.TokenNameShort:
+		case TerminalTokens.TokenNameSuper:
+		case TerminalTokens.TokenNameStatic:
+		case TerminalTokens.TokenNameSwitch:
+		case TerminalTokens.TokenNameStrictfp:
+		case TerminalTokens.TokenNameSynchronized:
+		case TerminalTokens.TokenNameTry:
+		case TerminalTokens.TokenNameThis:
+		case TerminalTokens.TokenNameTrue:
+		case TerminalTokens.TokenNameThrow:
+		case TerminalTokens.TokenNameThrows:
+		case TerminalTokens.TokenNameTransient:
+		case TerminalTokens.TokenNameVoid:
+		case TerminalTokens.TokenNameVolatile:
+		case TerminalTokens.TokenNameWhile:
 			return true;
 		case TerminalTokens.TokenNameRestrictedIdentifierYield:
 		case TerminalTokens.TokenNameRestrictedIdentifierrecord:
 		case TerminalTokens.TokenNameRestrictedIdentifiersealed:
 		case TerminalTokens.TokenNameRestrictedIdentifierpermits:
 		case TerminalTokens.TokenNameRestrictedIdentifierWhen:
-		case TerminalTokens.TokenNamenon_sealed:
+		case TerminalTokens.TokenNameNonSealed:
 			// making explicit - not a (restricted) keyword but restricted identifier.
 			//$FALL-THROUGH$
 		default:
@@ -5046,8 +5046,8 @@ private static class Goal {
 	static Goal PermittedTypesGoal;
 	static Goal PatternGoal;
 
-	static int[] SealedModifierFollow =  { TokenNameclass, TokenNameinterface,
-			TokenNameenum, TokenNameRestrictedIdentifierrecord };// Note: enum/record allowed as error flagging rules.
+	static int[] SealedModifierFollow =  { TokenNameClass, TokenNameInterface,
+			TokenNameEnum, TokenNameRestrictedIdentifierrecord };// Note: enum/record allowed as error flagging rules.
 	static int[] PermittedTypesFollow =  { TokenNameLBRACE };
 	static int[] PatternCaseLabelFollow = {TokenNameCOLON, TokenNameARROW, TokenNameCOMMA, TokenNameCaseArrow, TokenNameRestrictedIdentifierWhen};
 
@@ -5137,8 +5137,8 @@ private static class Goal {
 	}
 
 	private static int [] followSetOfCast() {
-		return new int [] { TokenNameIdentifier, TokenNamenew, TokenNamesuper, TokenNamethis,
-				TokenNamefalse, TokenNametrue, TokenNamenull,
+		return new int [] { TokenNameIdentifier, TokenNameNew, TokenNameSuper, TokenNameThis,
+				TokenNameFalse, TokenNameTrue, TokenNameNull,
 				TokenNameIntegerLiteral, TokenNameLongLiteral, TokenNameFloatingPointLiteral, TokenNameDoubleLiteral, TokenNameCharacterLiteral, TokenNameStringLiteral, TokenNameTextBlock,
 				TokenNameNOT, TokenNameTWIDDLE, TokenNameLPAREN
 		};
@@ -5311,16 +5311,16 @@ protected final boolean maybeAtLambdaOrCast() { // Could the '(' we saw just now
 		return false;
 	switch (this.lookBack[1]) {
 		case TokenNameIdentifier:
-		case TokenNamecatch:
-		case TokenNamethis:
-		case TokenNamesuper:
-		case TokenNameif:
-		case TokenNameswitch:
-		case TokenNamewhile:
-		case TokenNamefor:
-		case TokenNamecase:
-		case TokenNamesynchronized:
-		case TokenNametry:
+		case TokenNameCatch:
+		case TokenNameThis:
+		case TokenNameSuper:
+		case TokenNameIf:
+		case TokenNameSwitch:
+		case TokenNameWhile:
+		case TokenNameFor:
+		case TokenNameCase:
+		case TokenNameSynchronized:
+		case TokenNameTry:
 			return false; // not a viable prefix for cast or lambda.
 		default:
 			return this.activeParser.atConflictScenario(TokenNameLPAREN);
@@ -5335,30 +5335,30 @@ protected final boolean maybeAtReferenceExpression() { // Did the '<' we saw jus
 			switch (this.lookBack[0]) {
 				case TokenNameSEMICOLON:  // for (int i = 0; i < 10; i++);
 				case TokenNameRBRACE:     // class X { void foo() {} X<String> x = null; }
-				case TokenNameclass:      // class X<T> {}
-				case TokenNameinterface:  // interface I<T> {}
-				case TokenNameenum:       // enum E<T> {}
-				case TokenNamefinal:      // final Collection<String>
+				case TokenNameClass:      // class X<T> {}
+				case TokenNameInterface:  // interface I<T> {}
+				case TokenNameEnum:       // enum E<T> {}
+				case TokenNameFinal:      // final Collection<String>
 				case TokenNameLESS:       // Collection<IScalarData<AbstractData>>
 				case TokenNameGREATER:    // public <T> List<T> foo() { /* */ }
 				case TokenNameRIGHT_SHIFT:// static <T extends SelfType<T>> List<T> makeSingletonList(T t) { /* */ }
-				case TokenNamenew:        // new ArrayList<String>();
-				case TokenNamenon_sealed: // non-sealed X<T>
+				case TokenNameNew:        // new ArrayList<String>();
+				case TokenNameNonSealed: // non-sealed X<T>
 				case TokenNameRestrictedIdentifiersealed: // sealed X<T>
-				case TokenNamepublic:     // public List<String> foo() {}
-				case TokenNameabstract:   // abstract List<String> foo() {}
-				case TokenNameprivate:    // private List<String> foo() {}
-				case TokenNameprotected:  // protected List<String> foo() {}
-				case TokenNamestatic:     // public static List<String> foo() {}
-				case TokenNameextends:    // <T extends Y<Z>>
-				case TokenNamesuper:      // ? super Context<N>
+				case TokenNamePublic:     // public List<String> foo() {}
+				case TokenNameAbstract:   // abstract List<String> foo() {}
+				case TokenNamePrivate:    // private List<String> foo() {}
+				case TokenNameProtected:  // protected List<String> foo() {}
+				case TokenNameStatic:     // public static List<String> foo() {}
+				case TokenNameExtends:    // <T extends Y<Z>>
+				case TokenNameSuper:      // ? super Context<N>
 				case TokenNameAND:        // T extends Object & Comparable<? super T>
-				case TokenNameimplements: // class A implements I<Z>
+				case TokenNameImplements: // class A implements I<Z>
 				case TokenNameRestrictedIdentifierpermits: // class A permits I<Z>
-				case TokenNamethrows:     // throws Y<Z>
+				case TokenNameThrows:     // throws Y<Z>
 				case TokenNameAT:         // @Deprecated <T> void foo() {}
-				case TokenNameinstanceof: // if (o instanceof List<E>[])
-				case TokenNamedefault:
+				case TokenNameInstanceof: // if (o instanceof List<E>[])
+				case TokenNameDefault:
 					return false;
 				default:
 					break;
@@ -5375,18 +5375,18 @@ private final boolean maybeAtEllipsisAnnotationsStart() { // Did the '@' we saw 
 	if (this.consumingEllipsisAnnotations)
 		return false;
 	switch (this.lookBack[1]) {
-		case TokenNamenew:
+		case TokenNameNew:
 		case TokenNameCOMMA:
-		case TokenNameextends:
-		case TokenNamesuper:
-		case TokenNameimplements:
+		case TokenNameExtends:
+		case TokenNameSuper:
+		case TokenNameImplements:
 		case TokenNameRestrictedIdentifierpermits:
 		case TokenNameDOT:
 		case TokenNameLBRACE:
-		case TokenNameinstanceof:
+		case TokenNameInstanceof:
 		case TokenNameLESS:
 		case TokenNameAND:
-		case TokenNamethrows:
+		case TokenNameThrows:
 			return false;
 		default:
 			return true;
@@ -5406,16 +5406,16 @@ public void setActiveParser(ConflictedParser parser) {
 }
 public static boolean isRestrictedKeyword(int token) {
 	switch(token) {
-		case TokenNameopen:
-		case TokenNamemodule:
-		case TokenNamerequires:
-		case TokenNametransitive:
-		case TokenNameexports:
-		case TokenNameto:
-		case TokenNameopens:
-		case TokenNameuses:
-		case TokenNameprovides:
-		case TokenNamewith:
+		case TokenNameOpen:
+		case TokenNameModule:
+		case TokenNameRequires:
+		case TokenNameTransitive:
+		case TokenNameExports:
+		case TokenNameTo:
+		case TokenNameOpens:
+		case TokenNameUses:
+		case TokenNameProvides:
+		case TokenNameWith:
 			return true;
 		default:
 			return false;
@@ -5431,11 +5431,11 @@ private boolean mayBeAtAnYieldStatement() {
 		case TokenNameRBRACE:
 		case TokenNameRPAREN:
 		case TokenNameSEMICOLON:
-		case TokenNameelse:
-		case TokenNamedo:
+		case TokenNameElse:
+		case TokenNameDo:
 			return true;
 		case TokenNameCOLON:
-			return this.lookBack[0] == TokenNamedefault || (this.scanningSwitchLabel &&  (this.activeParser == null || this.activeParser.automatonWillShift(TokenNamecase)));
+			return this.lookBack[0] == TokenNameDefault || (this.scanningSwitchLabel &&  (this.activeParser == null || this.activeParser.automatonWillShift(TokenNameCase)));
 		case TokenNameDOT:
 		case TokenNameARROW:
 		default:
@@ -5590,7 +5590,7 @@ int disambiguatedRestrictedKeyword(int restrictedKeywordToken) {
 		return TokenNameIdentifier;
 
 	switch(restrictedKeywordToken) {
-		case TokenNametransitive:
+		case TokenNameTransitive:
 			if (this.scanContext != ScanContext.AFTER_REQUIRES) {
 				token = TokenNameIdentifier;
 			} else {
@@ -5598,7 +5598,7 @@ int disambiguatedRestrictedKeyword(int restrictedKeywordToken) {
 					token = TokenNameIdentifier;
 			}
 			break;
-		case TokenNamemodule:
+		case TokenNameModule:
 			switch (this.scanContext) {
 				case EXPECTING_KEYWORD:
 					break;
@@ -5610,14 +5610,14 @@ int disambiguatedRestrictedKeyword(int restrictedKeywordToken) {
 					token = TokenNameIdentifier;
 			}
 			break;
-		case TokenNameopen:
-		case TokenNameexports:
-		case TokenNameopens:
-		case TokenNamerequires:
-		case TokenNameprovides:
-		case TokenNameuses:
-		case TokenNameto:
-		case TokenNamewith:
+		case TokenNameOpen:
+		case TokenNameExports:
+		case TokenNameOpens:
+		case TokenNameRequires:
+		case TokenNameProvides:
+		case TokenNameUses:
+		case TokenNameTo:
+		case TokenNameWith:
 			if (this.scanContext != ScanContext.EXPECTING_KEYWORD) {
 				token = TokenNameIdentifier;
 			}
@@ -5642,7 +5642,7 @@ int disambiguatesRestrictedIdentifierWithLookAhead(int restrictedIdentifierToken
 	Goal goal;
 	switch (restrictedIdentifierToken) {
 		case TokenNameRestrictedIdentifiersealed:
-		case TokenNamenon_sealed:
+		case TokenNameNonSealed:
 			if (this.sourceLevel < ClassFileConstants.JDK17)
 				return TokenNameIdentifier;
 			goal = Goal.SealedModifierGoal;
@@ -5668,7 +5668,7 @@ int disambiguatesRestrictedIdentifierWithLookAhead(int restrictedIdentifierToken
 int disambiguatedToken(int token, Scanner scanner) {
 	final VanguardParser parser = getVanguardParser();
 	if (token == TokenNameARROW) {
-		if (this.lookBack[1] == TokenNamedefault)
+		if (this.lookBack[1] == TokenNameDefault)
 			return TokenNameCaseArrow;
 		if (this.sourceLevel < ClassFileConstants.JDK14 || this.activeParser == null || !this.activeParser.automatonWillShift(TokenNameCaseArrow))
 			return TokenNameARROW;
@@ -5706,15 +5706,15 @@ public boolean atMultiCaseComma() {
 }
 
 protected final boolean mayBeAtCasePattern(int token) {
-	return token == TokenNamecase || atMultiCaseComma();
+	return token == TokenNameCase || atMultiCaseComma();
 }
 
 int disambiguateCasePattern(int token) {
-	int delta = token == TokenNamecase ? 4 : 0; // 4 for case.
+	int delta = token == TokenNameCase ? 4 : 0; // 4 for case.
 	final VanguardParser parser = getNewVanguardParser();
 	parser.scanner.resetTo(parser.scanner.currentPosition + delta, parser.scanner.eofPosition);
 	if (parser.parse(Goal.PatternGoal) == VanguardParser.SUCCESS) {
-		if (token == TokenNamecase) {
+		if (token == TokenNameCase) {
 			this.nextToken = TokenNameBeginCasePattern;
 		} else {
 			this.nextToken = token;
@@ -5747,50 +5747,50 @@ public int fastForward(Statement unused) {
 				if (isAtAssistIdentifier()) // do not fast forward past the assist identifier ! We don't handle collections as of now.
 					return token;
 				//$FALL-THROUGH$
-			case TokenNameabstract:
-			case TokenNameassert:
-			case TokenNameboolean:
-			case TokenNamebreak:
-			case TokenNamebyte:
-			case TokenNamecase:
-			case TokenNamechar:
-			case TokenNameclass:
-			case TokenNamecontinue:
-			case TokenNamedefault:
-			case TokenNamedo:
-			case TokenNamedouble:
-			case TokenNameenum:
-			case TokenNamefalse:
-			case TokenNamefinal:
-			case TokenNamefloat:
-			case TokenNamefor:
-			case TokenNameif:
-			case TokenNameint:
-			case TokenNameinterface:
-			case TokenNamelong:
-			case TokenNamenative:
-			case TokenNamenew:
-			case TokenNamenon_sealed:
-			case TokenNamenull:
-			case TokenNameprivate:
-			case TokenNameprotected:
-			case TokenNamepublic:
+			case TokenNameAbstract:
+			case TokenNameAssert:
+			case TokenNameBoolean:
+			case TokenNameBreak:
+			case TokenNameByte:
+			case TokenNameCase:
+			case TokenNameChar:
+			case TokenNameClass:
+			case TokenNameContinue:
+			case TokenNameDefault:
+			case TokenNameDo:
+			case TokenNameDouble:
+			case TokenNameEnum:
+			case TokenNameFalse:
+			case TokenNameFinal:
+			case TokenNameFloat:
+			case TokenNameFor:
+			case TokenNameIf:
+			case TokenNameInt:
+			case TokenNameInterface:
+			case TokenNameLong:
+			case TokenNameNative:
+			case TokenNameNew:
+			case TokenNameNonSealed:
+			case TokenNameNull:
+			case TokenNamePrivate:
+			case TokenNameProtected:
+			case TokenNamePublic:
 			case TokenNameRestrictedIdentifiersealed:
-			case TokenNamereturn:
-			case TokenNameshort:
-			case TokenNamestatic:
-			case TokenNamestrictfp:
-			case TokenNamesuper:
-			case TokenNameswitch:
-			case TokenNamesynchronized:
-			case TokenNamethis:
-			case TokenNamethrow:
-			case TokenNametransient:
-			case TokenNametrue:
-			case TokenNametry:
-			case TokenNamevoid:
-			case TokenNamevolatile:
-			case TokenNamewhile:
+			case TokenNameReturn:
+			case TokenNameShort:
+			case TokenNameStatic:
+			case TokenNameStrictfp:
+			case TokenNameSuper:
+			case TokenNameSwitch:
+			case TokenNameSynchronized:
+			case TokenNameThis:
+			case TokenNameThrow:
+			case TokenNameTransient:
+			case TokenNameTrue:
+			case TokenNameTry:
+			case TokenNameVoid:
+			case TokenNameVolatile:
+			case TokenNameWhile:
 			case TokenNameIntegerLiteral: // ??!
 			case TokenNameLongLiteral:
 			case TokenNameFloatingPointLiteral:

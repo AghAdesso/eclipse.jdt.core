@@ -791,8 +791,8 @@ public RecoveredElement updateOnOpeningBrace(int braceStart, int braceEnd){
 		Parser parser = parser();
 		switch(parser.lastIgnoredToken){
 			case -1 :
-			case TokenNameextends :
-			case TokenNameimplements :
+			case TokenNameExtends :
+			case TokenNameImplements :
 			case TokenNameRestrictedIdentifierpermits:
 			case TokenNameGREATER :
 			case TokenNameRIGHT_SHIFT :

@@ -103,9 +103,9 @@ public class SpacePreparator extends ASTVisitor {
 		handleTypeParameters(typeParameters);
 
 		if (!node.superInterfaceTypes().isEmpty())
-			handleTokenAfter(node.getName(), node.isInterface() ? TokenNameextends : TokenNameimplements, true, true);
+			handleTokenAfter(node.getName(), node.isInterface() ? TokenNameExtends : TokenNameImplements, true, true);
 		if (node.getSuperclassType() != null)
-			handleTokenAfter(node.getName(), TokenNameextends, true, true);
+			handleTokenAfter(node.getName(), TokenNameExtends, true, true);
 		if (!node.permittedTypes().isEmpty())
 			handleTokenAfter(node.getName(), TokenNameRestrictedIdentifierpermits, true, true);
 
@@ -181,7 +181,7 @@ public class SpacePreparator extends ASTVisitor {
 				this.options.insert_space_before_opening_brace_in_record_declaration, false);
 		List<Type> superInterfaces = node.superInterfaceTypes();
 		if (!superInterfaces.isEmpty()) {
-			handleTokenBefore(superInterfaces.get(0), TokenNameimplements, true, true);
+			handleTokenBefore(superInterfaces.get(0), TokenNameImplements, true, true);
 			handleCommas(superInterfaces, this.options.insert_space_before_comma_in_superinterfaces,
 					this.options.insert_space_after_comma_in_superinterfaces);
 		}
@@ -263,7 +263,7 @@ public class SpacePreparator extends ASTVisitor {
 
 		List<Type> thrownExceptionTypes = node.thrownExceptionTypes();
 		if (!thrownExceptionTypes.isEmpty()) {
-			handleTokenBefore(thrownExceptionTypes.get(0), TokenNamethrows, true, false);
+			handleTokenBefore(thrownExceptionTypes.get(0), TokenNameThrows, true, false);
 
 			boolean beforeComma = node.isConstructor()
 					? this.options.insert_space_before_comma_in_constructor_declaration_throws
@@ -380,7 +380,7 @@ public class SpacePreparator extends ASTVisitor {
 					false);
 		}
 		if (!node.isDefault()) {
-			handleToken(node, TokenNamecase, false, true);
+			handleToken(node, TokenNameCase, false, true);
 			handleCommas(node.expressions(), this.options.insert_space_before_comma_in_switch_case_expressions,
 					this.options.insert_space_after_comma_in_switch_case_expressions);
 		}
@@ -412,7 +412,7 @@ public class SpacePreparator extends ASTVisitor {
 		handleTokenBefore(node.getExpression(), TokenNameLPAREN,
 				this.options.insert_space_before_opening_paren_in_while,
 				this.options.insert_space_after_opening_paren_in_while);
-		handleTokenBefore(node.getExpression(), TokenNamewhile,
+		handleTokenBefore(node.getExpression(), TokenNameWhile,
 				!(node.getBody() instanceof Block) || this.options.insert_space_after_closing_brace_in_block, false);
 		handleTokenAfter(node.getExpression(), TokenNameRPAREN,
 				this.options.insert_space_before_closing_paren_in_while, false);
@@ -476,7 +476,7 @@ public class SpacePreparator extends ASTVisitor {
 
 	@Override
 	public boolean visit(AssertStatement node) {
-		this.tm.firstTokenIn(node, TokenNameassert).spaceAfter();
+		this.tm.firstTokenIn(node, TokenNameAssert).spaceAfter();
 		if (node.getMessage() != null) {
 			handleTokenBefore(node.getMessage(), TokenNameCOLON, this.options.insert_space_before_colon_in_assert,
 					this.options.insert_space_after_colon_in_assert);
@@ -487,7 +487,7 @@ public class SpacePreparator extends ASTVisitor {
 	@Override
 	public boolean visit(ReturnStatement node) {
 		if (node.getExpression() != null) {
-			int returnTokenIndex = this.tm.firstIndexIn(node, TokenNamereturn);
+			int returnTokenIndex = this.tm.firstIndexIn(node, TokenNameReturn);
 			if (!(node.getExpression() instanceof ParenthesizedExpression)
 					|| this.options.insert_space_before_parenthesized_expression_in_return) {
 				this.tm.get(returnTokenIndex).spaceAfter();
@@ -498,7 +498,7 @@ public class SpacePreparator extends ASTVisitor {
 
 	@Override
 	public boolean visit(ThrowStatement node) {
-		int returnTokenIndex = this.tm.firstIndexIn(node, TokenNamethrow);
+		int returnTokenIndex = this.tm.firstIndexIn(node, TokenNameThrow);
 		if (this.tm.get(returnTokenIndex + 1).tokenType != TokenNameLPAREN
 				|| this.options.insert_space_before_parenthesized_expression_in_throw) {
 			this.tm.get(returnTokenIndex).spaceAfter();
@@ -530,7 +530,7 @@ public class SpacePreparator extends ASTVisitor {
 		handleEmptyParens(node.getName(),
 				this.options.insert_space_between_empty_parens_in_annotation_type_member_declaration);
 		if (node.getDefault() != null)
-			handleTokenBefore(node.getDefault(), TokenNamedefault, true, true);
+			handleTokenBefore(node.getDefault(), TokenNameDefault, true, true);
 		return true;
 	}
 
@@ -708,7 +708,7 @@ public class SpacePreparator extends ASTVisitor {
 		handleTypeArguments(typeArguments);
 		handleInvocation(node, node.getType(), node.getAnonymousClassDeclaration());
 		if (!typeArguments.isEmpty()) {
-			handleTokenBefore(typeArguments.get(0), TokenNamenew, false, true); // fix for: new<Integer>A<String>()
+			handleTokenBefore(typeArguments.get(0), TokenNameNew, false, true); // fix for: new<Integer>A<String>()
 		}
 		handleCommas(node.arguments(), this.options.insert_space_before_comma_in_allocation_expression,
 				this.options.insert_space_after_comma_in_allocation_expression);
@@ -1030,13 +1030,13 @@ public class SpacePreparator extends ASTVisitor {
 
 	@Override
 	public boolean visit(InstanceofExpression node) {
-		handleTokenAfter(node.getLeftOperand(), TokenNameinstanceof, true, true);
+		handleTokenAfter(node.getLeftOperand(), TokenNameInstanceof, true, true);
 		return true;
 	}
 
 	@Override
 	public boolean visit(PatternInstanceofExpression node) {
-		handleTokenAfter(node.getLeftOperand(), TokenNameinstanceof, true, true);
+		handleTokenAfter(node.getLeftOperand(), TokenNameInstanceof, true, true);
 		return true;
 	}
 

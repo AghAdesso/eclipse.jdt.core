@@ -615,14 +615,14 @@ public class InternalNamingConventions {
 			try{
 				nameScanner.setSource(baseName);
 				switch (nameScanner.getNextToken()) {
-					case TerminalTokens.TokenNameint :
-					case TerminalTokens.TokenNamebyte :
-					case TerminalTokens.TokenNameshort :
-					case TerminalTokens.TokenNamechar :
-					case TerminalTokens.TokenNamelong :
-					case TerminalTokens.TokenNamefloat :
-					case TerminalTokens.TokenNamedouble :
-					case TerminalTokens.TokenNameboolean :
+					case TerminalTokens.TokenNameInt :
+					case TerminalTokens.TokenNameByte :
+					case TerminalTokens.TokenNameShort :
+					case TerminalTokens.TokenNameChar :
+					case TerminalTokens.TokenNameLong :
+					case TerminalTokens.TokenNameFloat :
+					case TerminalTokens.TokenNameDouble :
+					case TerminalTokens.TokenNameBoolean :
 						isBaseType = true;
 						break;
 				}
